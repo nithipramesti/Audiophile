@@ -1,0 +1,120 @@
+.home {
+  section.hero {
+    background-image: url("/src/assets/images/home/desktop/image-hero.jpg");
+    background-size: contain;
+    color: #fff;
+    padding: 225px 0 160px 0;
+
+    .hero-text {
+      width: 400px;
+      margin-bottom: 40px;
+    }
+  }
+
+  section.product-categories {
+    margin-top: 120px;
+    position: relative;
+
+    .product-category-card {
+      grid-column: span 4;
+      background-color: $color-grey;
+      height: 200px;
+      position: relative;
+      top: 80px;
+      text-align: center;
+      padding-top: 110px;
+
+      img {
+        position: absolute;
+        height: 200px;
+        top: -80px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      h4 {
+        margin-bottom: 15px;
+      }
+    }
+  }
+
+  section.featured-primary {
+    margin-top: 120px;
+    background-color: $color-orange;
+
+    .text-container {
+      grid-column: 8/12;
+      margin: 130px 0;
+
+      p {
+        margin-bottom: 40px;
+      }
+    }
+  }
+
+  section.featured-secondary {
+    margin-top: 48px;
+    background-color: $color-grey;
+    height: 320px;
+    position: relative;
+
+    .text-container {
+      grid-column: 2/6;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+
+      h3 {
+        margin-bottom: 32px;
+      }
+    }
+  }
+
+  section.featured-tertiary {
+    margin-top: 48px;
+    height: 320px;
+
+    .left-side {
+      grid-column: 1/7;
+      height: 100%;
+      background-image: url("/src/assets/images/home/desktop/image-earphones-yx1.jpg");
+      background-position: center;
+      background-size: cover;
+    }
+
+    .right-side {
+      grid-column: 7/13;
+      height: 100%;
+      position: relative;
+      background-color: $color-grey;
+
+      .text-container {
+        grid-column: 2/7;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+
+        h3 {
+          margin-bottom: 32px;
+        }
+      }
+    }
+  }
+
+  section.story {
+    margin-top: 200px;
+    height: 590px;
+    align-items: center;
+
+    .text-container {
+      grid-column: 1/6;
+    }
+
+    .img-container {
+      grid-column: 7/13;
+      height: 100%;
+      background-image: url("/src/assets/images/shared/desktop/image-best-gear.jpg");
+      background-size: cover;
+    }
+  }
+}

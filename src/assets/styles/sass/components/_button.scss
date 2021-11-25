@@ -1,0 +1,22 @@
+.btn {
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 1px;
+  padding: 15px 30px;
+}
+
+.btn-primary {
+  color: $color-white;
+  background-color: $color-orange;
+}
+
+.btn-dark {
+  color: $color-white;
+  background-color: $color-black;
+}
+
+.btn-outline {
+  color: $color-black;
+  border: 1px solid $color-black;
+}

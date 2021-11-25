@@ -1,0 +1,39 @@
+footer {
+  margin-top: 200px;
+  background-color: $color-black;
+  padding: 70px 0 48px 0;
+
+  nav {
+    grid-column: span 12;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 36px;
+
+    .link ~ .link {
+      margin-left: 35px;
+    }
+  }
+
+  .about {
+    grid-column: 1/7;
+  }
+
+  .social {
+    grid-column: 7/13;
+    text-align: right;
+
+    a {
+      width: 24px;
+    }
+
+    a ~ a {
+      margin-left: 16px;
+    }
+  }
+
+  .copyright {
+    grid-column: span 12;
+    font-weight: bold;
+    margin-top: 56px;
+  }
+}

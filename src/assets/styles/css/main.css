@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap");
 *,
 *::after,
 *::before {
@@ -5,5 +6,346 @@
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+}
+
+body .app {
+  position: relative;
+}
+
+body .container {
+  width: 1110px;
+  margin: 0 auto;
+}
+
+body .grid-12 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[12];
+      grid-template-columns: repeat(12, 1fr);
+  gap: 30px;
+}
+
+body .grid-6 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[6];
+      grid-template-columns: repeat(6, 1fr);
+  -webkit-column-gap: 30px;
+          column-gap: 30px;
+}
+
+body .grid-2 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  -webkit-column-gap: 30px;
+          column-gap: 30px;
+  row-gap: 48px;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+}
+
+p {
+  font-size: 15px;
+  margin-bottom: 24px;
+}
+
+.text-light {
+  color: #ffffff;
+}
+
+.text-dark {
+  color: #000000;
+}
+
+.text-grey {
+  color: #f1f1f1;
+}
+
+.text-orange {
+  color: #d87d4a;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: 56px;
+  line-height: 58px;
+  margin-bottom: 24px;
+}
+
+h2 {
+  font-size: 40px;
+  line-height: 44px;
+  margin-bottom: 24px;
+}
+
+h3 {
+  font-size: 28px;
+}
+
+h4 {
+  font-size: 18px;
+}
+
+.btn {
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 1px;
+  padding: 15px 30px;
+}
+
+.btn-primary {
+  color: #ffffff;
+  background-color: #d87d4a;
+}
+
+.btn-dark {
+  color: #ffffff;
+  background-color: #000000;
+}
+
+.btn-outline {
+  color: #000000;
+  border: 1px solid #000000;
+}
+
+.link {
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+.link-primary {
+  color: #ffffff;
+}
+
+.link-black {
+  color: #000000;
+}
+
+footer {
+  margin-top: 200px;
+  background-color: #000000;
+  padding: 70px 0 48px 0;
+}
+
+footer nav {
+  grid-column: span 12;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 36px;
+}
+
+footer nav .link ~ .link {
+  margin-left: 35px;
+}
+
+footer .about {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 6;
+  grid-column: 1/7;
+}
+
+footer .social {
+  -ms-grid-column: 7;
+  -ms-grid-column-span: 6;
+  grid-column: 7/13;
+  text-align: right;
+}
+
+footer .social a {
+  width: 24px;
+}
+
+footer .social a ~ a {
+  margin-left: 16px;
+}
+
+footer .copyright {
+  grid-column: span 12;
+  font-weight: bold;
+  margin-top: 56px;
+}
+
+header {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 1110px;
+  height: 108px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  border-bottom: 1px solid #979797;
+}
+
+header nav .link ~ .link {
+  margin-left: 35px;
+}
+
+header .nav-cart {
+  height: 20px;
+}
+
+.home section.hero {
+  background-image: url("/src/assets/images/home/desktop/image-hero.jpg");
+  background-size: contain;
+  color: #fff;
+  padding: 225px 0 160px 0;
+}
+
+.home section.hero .hero-text {
+  width: 400px;
+  margin-bottom: 40px;
+}
+
+.home section.product-categories {
+  margin-top: 120px;
+  position: relative;
+}
+
+.home section.product-categories .product-category-card {
+  grid-column: span 4;
+  background-color: #f1f1f1;
+  height: 200px;
+  position: relative;
+  top: 80px;
+  text-align: center;
+  padding-top: 110px;
+}
+
+.home section.product-categories .product-category-card img {
+  position: absolute;
+  height: 200px;
+  top: -80px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.home section.product-categories .product-category-card h4 {
+  margin-bottom: 15px;
+}
+
+.home section.featured-primary {
+  margin-top: 120px;
+  background-color: #d87d4a;
+}
+
+.home section.featured-primary .text-container {
+  -ms-grid-column: 8;
+  -ms-grid-column-span: 4;
+  grid-column: 8/12;
+  margin: 130px 0;
+}
+
+.home section.featured-primary .text-container p {
+  margin-bottom: 40px;
+}
+
+.home section.featured-secondary {
+  margin-top: 48px;
+  background-color: #f1f1f1;
+  height: 320px;
+  position: relative;
+}
+
+.home section.featured-secondary .text-container {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 4;
+  grid-column: 2/6;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.home section.featured-secondary .text-container h3 {
+  margin-bottom: 32px;
+}
+
+.home section.featured-tertiary {
+  margin-top: 48px;
+  height: 320px;
+}
+
+.home section.featured-tertiary .left-side {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 6;
+  grid-column: 1/7;
+  height: 100%;
+  background-image: url("/src/assets/images/home/desktop/image-earphones-yx1.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.home section.featured-tertiary .right-side {
+  -ms-grid-column: 7;
+  -ms-grid-column-span: 6;
+  grid-column: 7/13;
+  height: 100%;
+  position: relative;
+  background-color: #f1f1f1;
+}
+
+.home section.featured-tertiary .right-side .text-container {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 5;
+  grid-column: 2/7;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.home section.featured-tertiary .right-side .text-container h3 {
+  margin-bottom: 32px;
+}
+
+.home section.story {
+  margin-top: 200px;
+  height: 590px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.home section.story .text-container {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 5;
+  grid-column: 1/6;
+}
+
+.home section.story .img-container {
+  -ms-grid-column: 7;
+  -ms-grid-column-span: 6;
+  grid-column: 7/13;
+  height: 100%;
+  background-image: url("/src/assets/images/shared/desktop/image-best-gear.jpg");
+  background-size: cover;
 }
 /*# sourceMappingURL=main.css.map */

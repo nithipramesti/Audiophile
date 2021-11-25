@@ -5,3 +5,33 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+body {
+  .app {
+    position: relative;
+  }
+
+  .container {
+    width: $width-container;
+    margin: 0 auto;
+  }
+
+  .grid-12 {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 30px;
+  }
+
+  .grid-6 {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 30px;
+  }
+
+  .grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 30px;
+    row-gap: 48px;
+  }
+}
