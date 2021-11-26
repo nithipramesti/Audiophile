@@ -1,0 +1,88 @@
+.product-detail-page {
+  header {
+    height: 108px;
+    background-color: $color-black;
+    margin-bottom: 80px;
+  }
+
+  a.go-back {
+    text-decoration: none;
+  }
+
+  .product-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 160px;
+    margin-top: 55px;
+
+    img {
+      width: 540px;
+    }
+
+    .text-container {
+      width: 445px;
+
+      h2 {
+        margin-bottom: 32px;
+      }
+
+      p {
+        margin-bottom: 40px;
+      }
+    }
+  }
+
+  .product-detail {
+    .features {
+      grid-column: 1/8;
+    }
+
+    .in-the-box {
+      grid-column: 9/13;
+
+      .include-item {
+        display: flex;
+
+        p {
+          margin-bottom: 8px;
+        }
+
+        .qty {
+          width: 40px;
+          font-weight: bold;
+        }
+
+        .item {
+          text-transform: capitalize;
+        }
+      }
+
+      .img-gallery {
+        grid-template-rows: repeat(2, 280px);
+        row-gap: 30px;
+
+        .img-1,
+        .img-2 {
+          grid-column: 1/6;
+          grid-row: span 1;
+          height: 280px;
+        }
+
+        .img-1 {
+          background-image: url("/src/assets/images/product-xx99-mark-one-headphones/desktop/image-gallery-1.jpg");
+        }
+
+        .img-2 {
+          background-image: url("/src/assets/images/product-xx99-mark-one-headphones/desktop/image-gallery-2.jpg");
+        }
+
+        .img-3 {
+          grid-column: 6/13;
+          grid-row: span 2;
+          background-image: url("/src/assets/images/product-xx99-mark-one-headphones/desktop/image-gallery-3.jpg");
+        }
+      }
+    }
+  }
+}

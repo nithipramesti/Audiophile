@@ -1,0 +1,16 @@
+section.story {
+  margin-top: 200px;
+  height: 590px;
+  align-items: center;
+
+  .text-container {
+    grid-column: 1/6;
+  }
+
+  .img-container {
+    grid-column: 7/13;
+    height: 100%;
+    background-image: url("/src/assets/images/shared/desktop/image-best-gear.jpg");
+    background-size: cover;
+  }
+}

@@ -5,7 +5,7 @@ import iconCart from "../assets/images/shared/desktop/icon-cart.svg";
 
 export const Navbar = () => {
   return (
-    <nav>
+    <nav className="navbar">
       <img src={logo} alt="" className="logo" />
       <div className="nav-links">
         <a href="#" className="link link-primary">

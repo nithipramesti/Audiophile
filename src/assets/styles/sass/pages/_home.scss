@@ -11,33 +11,6 @@
     }
   }
 
-  section.product-categories {
-    margin-top: 120px;
-    position: relative;
-
-    .product-category-card {
-      grid-column: span 4;
-      background-color: $color-grey;
-      height: 200px;
-      position: relative;
-      top: 80px;
-      text-align: center;
-      padding-top: 110px;
-
-      img {
-        position: absolute;
-        height: 200px;
-        top: -80px;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-
-      h4 {
-        margin-bottom: 15px;
-      }
-    }
-  }
-
   section.featured-primary {
     margin-top: 120px;
     background-color: $color-orange;
@@ -98,23 +71,6 @@
           margin-bottom: 32px;
         }
       }
-    }
-  }
-
-  section.story {
-    margin-top: 200px;
-    height: 590px;
-    align-items: center;
-
-    .text-container {
-      grid-column: 1/6;
-    }
-
-    .img-container {
-      grid-column: 7/13;
-      height: 100%;
-      background-image: url("/src/assets/images/shared/desktop/image-best-gear.jpg");
-      background-size: cover;
     }
   }
 }

@@ -22,7 +22,8 @@ body .grid-12 {
   display: grid;
   -ms-grid-columns: (1fr)[12];
       grid-template-columns: repeat(12, 1fr);
-  gap: 30px;
+  -webkit-column-gap: 30px;
+          column-gap: 30px;
 }
 
 body .grid-6 {
@@ -50,6 +51,7 @@ body {
 
 p {
   font-size: 15px;
+  line-height: 25px;
   margin-bottom: 24px;
 }
 
@@ -58,7 +60,7 @@ p {
 }
 
 .text-dark {
-  color: #000000;
+  color: #101010;
 }
 
 .text-grey {
@@ -80,17 +82,22 @@ h5 {
 h1 {
   font-size: 56px;
   line-height: 58px;
+  letter-spacing: 2px;
   margin-bottom: 24px;
 }
 
 h2 {
   font-size: 40px;
   line-height: 44px;
+  letter-spacing: 1.5px;
   margin-bottom: 24px;
 }
 
 h3 {
   font-size: 28px;
+  line-height: 36px;
+  letter-spacing: 1.2px;
+  margin-bottom: 24px;
 }
 
 h4 {
@@ -117,12 +124,12 @@ h4 {
 
 .btn-dark {
   color: #ffffff;
-  background-color: #000000;
+  background-color: #101010;
 }
 
 .btn-outline {
-  color: #000000;
-  border: 1px solid #000000;
+  color: #101010;
+  border: 1px solid #101010;
 }
 
 .link {
@@ -138,12 +145,12 @@ h4 {
 }
 
 .link-black {
-  color: #000000;
+  color: #101010;
 }
 
 footer {
   margin-top: 200px;
-  background-color: #000000;
+  background-color: #101010;
   padding: 70px 0 48px 0;
 }
 
@@ -189,7 +196,7 @@ footer .copyright {
   margin-top: 56px;
 }
 
-nav {
+nav.navbar {
   position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -208,12 +215,63 @@ nav {
   border-bottom: 1px solid #979797;
 }
 
-nav .nav-links .link ~ .link {
+nav.navbar .nav-links .link ~ .link {
   margin-left: 35px;
 }
 
-nav .nav-cart {
+nav.navbar .nav-cart {
   height: 20px;
+}
+
+section.product-categories {
+  margin-top: 120px;
+  position: relative;
+}
+
+section.product-categories .product-category-card {
+  grid-column: span 4;
+  background-color: #f1f1f1;
+  height: 200px;
+  position: relative;
+  top: 80px;
+  text-align: center;
+  padding-top: 110px;
+}
+
+section.product-categories .product-category-card img {
+  position: absolute;
+  height: 200px;
+  top: -80px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+section.product-categories .product-category-card h4 {
+  margin-bottom: 15px;
+}
+
+section.story {
+  margin-top: 200px;
+  height: 590px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+section.story .text-container {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 5;
+  grid-column: 1/6;
+}
+
+section.story .img-container {
+  -ms-grid-column: 7;
+  -ms-grid-column-span: 6;
+  grid-column: 7/13;
+  height: 100%;
+  background-image: url("/src/assets/images/shared/desktop/image-best-gear.jpg");
+  background-size: cover;
 }
 
 .home section.hero {
@@ -226,34 +284,6 @@ nav .nav-cart {
 .home section.hero .hero-text {
   width: 400px;
   margin-bottom: 40px;
-}
-
-.home section.product-categories {
-  margin-top: 120px;
-  position: relative;
-}
-
-.home section.product-categories .product-category-card {
-  grid-column: span 4;
-  background-color: #f1f1f1;
-  height: 200px;
-  position: relative;
-  top: 80px;
-  text-align: center;
-  padding-top: 110px;
-}
-
-.home section.product-categories .product-category-card img {
-  position: absolute;
-  height: 200px;
-  top: -80px;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-}
-
-.home section.product-categories .product-category-card h4 {
-  margin-bottom: 15px;
 }
 
 .home section.featured-primary {
@@ -331,26 +361,141 @@ nav .nav-cart {
   margin-bottom: 32px;
 }
 
-.home section.story {
-  margin-top: 200px;
-  height: 590px;
+.products-page header {
+  padding: 195px 0 100px 0;
+  background-color: #101010;
+  text-align: center;
+  margin-bottom: 160px;
+}
+
+.products-page section.products-container .product-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-bottom: 160px;
 }
 
-.home section.story .text-container {
+.products-page section.products-container .product-card img {
+  width: 540px;
+}
+
+.products-page section.products-container .product-card .text-container {
+  width: 445px;
+}
+
+.products-page section.products-container .product-card .text-container h2 {
+  margin-bottom: 32px;
+}
+
+.products-page section.products-container .product-card .text-container p {
+  margin-bottom: 40px;
+}
+
+.product-detail-page header {
+  height: 108px;
+  background-color: #101010;
+  margin-bottom: 80px;
+}
+
+.product-detail-page a.go-back {
+  text-decoration: none;
+}
+
+.product-detail-page .product-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 160px;
+  margin-top: 55px;
+}
+
+.product-detail-page .product-card img {
+  width: 540px;
+}
+
+.product-detail-page .product-card .text-container {
+  width: 445px;
+}
+
+.product-detail-page .product-card .text-container h2 {
+  margin-bottom: 32px;
+}
+
+.product-detail-page .product-card .text-container p {
+  margin-bottom: 40px;
+}
+
+.product-detail-page .product-detail .features {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 7;
+  grid-column: 1/8;
+}
+
+.product-detail-page .product-detail .in-the-box {
+  -ms-grid-column: 9;
+  -ms-grid-column-span: 4;
+  grid-column: 9/13;
+}
+
+.product-detail-page .product-detail .in-the-box .include-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.product-detail-page .product-detail .in-the-box .include-item p {
+  margin-bottom: 8px;
+}
+
+.product-detail-page .product-detail .in-the-box .include-item .qty {
+  width: 40px;
+  font-weight: bold;
+}
+
+.product-detail-page .product-detail .in-the-box .include-item .item {
+  text-transform: capitalize;
+}
+
+.product-detail-page .product-detail .in-the-box .img-gallery {
+  -ms-grid-rows: (280px)[2];
+      grid-template-rows: repeat(2, 280px);
+  row-gap: 30px;
+}
+
+.product-detail-page .product-detail .in-the-box .img-gallery .img-1,
+.product-detail-page .product-detail .in-the-box .img-gallery .img-2 {
   -ms-grid-column: 1;
   -ms-grid-column-span: 5;
   grid-column: 1/6;
+  grid-row: span 1;
+  height: 280px;
 }
 
-.home section.story .img-container {
-  -ms-grid-column: 7;
-  -ms-grid-column-span: 6;
-  grid-column: 7/13;
-  height: 100%;
-  background-image: url("/src/assets/images/shared/desktop/image-best-gear.jpg");
-  background-size: cover;
+.product-detail-page .product-detail .in-the-box .img-gallery .img-1 {
+  background-image: url("/src/assets/images/product-xx99-mark-one-headphones/desktop/image-gallery-1.jpg");
+}
+
+.product-detail-page .product-detail .in-the-box .img-gallery .img-2 {
+  background-image: url("/src/assets/images/product-xx99-mark-one-headphones/desktop/image-gallery-2.jpg");
+}
+
+.product-detail-page .product-detail .in-the-box .img-gallery .img-3 {
+  -ms-grid-column: 6;
+  -ms-grid-column-span: 7;
+  grid-column: 6/13;
+  grid-row: span 2;
+  background-image: url("/src/assets/images/product-xx99-mark-one-headphones/desktop/image-gallery-3.jpg");
 }
 /*# sourceMappingURL=main.css.map */
