@@ -97,6 +97,11 @@ h4 {
   font-size: 18px;
 }
 
+.sub-title {
+  font-size: 14px;
+  letter-spacing: 10px;
+}
+
 .btn {
   text-transform: uppercase;
   text-decoration: none;
@@ -184,7 +189,7 @@ footer .copyright {
   margin-top: 56px;
 }
 
-header {
+nav {
   position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -203,11 +208,11 @@ header {
   border-bottom: 1px solid #979797;
 }
 
-header nav .link ~ .link {
+nav .nav-links .link ~ .link {
   margin-left: 35px;
 }
 
-header .nav-cart {
+nav .nav-cart {
   height: 20px;
 }
 

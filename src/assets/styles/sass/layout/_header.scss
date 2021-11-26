@@ -1,4 +1,4 @@
-header {
+nav {
   position: absolute;
   display: flex;
   justify-content: space-between;
@@ -9,7 +9,7 @@ header {
   transform: translateX(-50%);
   border-bottom: 1px solid #979797;
 
-  nav {
+  .nav-links {
     .link ~ .link {
       margin-left: 35px;
     }

@@ -3,11 +3,11 @@ import React from "react";
 import logo from "../assets/images/shared/desktop/logo.svg";
 import iconCart from "../assets/images/shared/desktop/icon-cart.svg";
 
-export const Header = () => {
+export const Navbar = () => {
   return (
-    <header>
+    <nav>
       <img src={logo} alt="" className="logo" />
-      <nav>
+      <div className="nav-links">
         <a href="#" className="link link-primary">
           Home
         </a>
@@ -20,10 +20,10 @@ export const Header = () => {
         <a href="#" className="link link-primary">
           Earphones
         </a>
-      </nav>
+      </div>
       <img src={iconCart} alt="" className="nav-cart" />
-    </header>
+    </nav>
   );
 };
 
-export default Header;
+export default Navbar;
