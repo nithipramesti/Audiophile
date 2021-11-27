@@ -101,6 +101,10 @@ h3 {
 }
 
 h4 {
+  font-size: 24px;
+}
+
+h5 {
   font-size: 18px;
 }
 
@@ -468,34 +472,62 @@ section.story .img-container {
   text-transform: capitalize;
 }
 
-.product-detail-page .product-detail .in-the-box .img-gallery {
+.product-detail-page .img-gallery {
   -ms-grid-rows: (280px)[2];
       grid-template-rows: repeat(2, 280px);
   row-gap: 30px;
+  margin-top: 160px;
 }
 
-.product-detail-page .product-detail .in-the-box .img-gallery .img-1,
-.product-detail-page .product-detail .in-the-box .img-gallery .img-2 {
+.product-detail-page .img-gallery .img-1,
+.product-detail-page .img-gallery .img-2 {
   -ms-grid-column: 1;
   -ms-grid-column-span: 5;
   grid-column: 1/6;
   grid-row: span 1;
-  height: 280px;
+  height: 100%;
 }
 
-.product-detail-page .product-detail .in-the-box .img-gallery .img-1 {
+.product-detail-page .img-gallery .img-1 {
   background-image: url("/src/assets/images/product-xx99-mark-one-headphones/desktop/image-gallery-1.jpg");
 }
 
-.product-detail-page .product-detail .in-the-box .img-gallery .img-2 {
+.product-detail-page .img-gallery .img-2 {
   background-image: url("/src/assets/images/product-xx99-mark-one-headphones/desktop/image-gallery-2.jpg");
 }
 
-.product-detail-page .product-detail .in-the-box .img-gallery .img-3 {
+.product-detail-page .img-gallery .img-3 {
   -ms-grid-column: 6;
   -ms-grid-column-span: 7;
   grid-column: 6/13;
-  grid-row: span 2;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  grid-row: 1/3;
   background-image: url("/src/assets/images/product-xx99-mark-one-headphones/desktop/image-gallery-3.jpg");
+}
+
+.product-detail-page section.related-products {
+  margin-top: 160px;
+  margin-bottom: 160px;
+}
+
+.product-detail-page section.related-products h3 {
+  grid-column: span 12;
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.product-detail-page section.related-products .card-container .related-product-card {
+  grid-column: span 4;
+  text-align: center;
+}
+
+.product-detail-page section.related-products .card-container .related-product-card img {
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.product-detail-page section.related-products .card-container .related-product-card h4 {
+  margin-bottom: 32px;
 }
 /*# sourceMappingURL=main.css.map */

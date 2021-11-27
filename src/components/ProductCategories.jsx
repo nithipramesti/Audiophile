@@ -30,7 +30,7 @@ export const ProductCategories = () => {
       return (
         <div className="product-category-card">
           <img src={category.img} alt="" />
-          <h4>{category.title}</h4>
+          <h5>{category.title}</h5>
           <a className="link link-black" href={category.shopLink}>
             Shop
           </a>
