@@ -1,0 +1,54 @@
+.checkout-page {
+  header {
+    height: 108px;
+    background-color: $color-black;
+    margin-bottom: 80px;
+  }
+
+  a.go-back {
+    text-decoration: none;
+    grid-column: span 12;
+  }
+
+  .checkout-form {
+    grid-column: span 8;
+
+    label {
+      display: block;
+    }
+
+    input {
+      width: 100%;
+    }
+
+    .form-section {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 16px;
+      margin: 0 48px;
+
+      .form-title {
+        grid-column: span 2;
+      }
+
+      .span-2 {
+        grid-column: span 2;
+      }
+
+      .half-right {
+        grid-column: 2/3;
+      }
+
+      .payment-detail {
+        label,
+        input {
+          display: inline;
+        }
+      }
+    }
+  }
+
+  .summary {
+    grid-column: span 4;
+  }
+}

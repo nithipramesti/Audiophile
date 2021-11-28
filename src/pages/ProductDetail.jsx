@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import database from "../database/data.json";
 import productImg from "../assets/images/product-xx99-mark-one-headphones/desktop/image-category-page-preview.jpg";
@@ -11,6 +11,8 @@ export const ProductDetail = () => {
   const productDatabase = database.filter((val) => {
     return val.category === "headphones";
   });
+
+  const [productQty, setProductQty] = useState(1);
 
   const renderInTheBox = () => {
     return productData.includes.map((val) => {
@@ -49,9 +51,16 @@ export const ProductDetail = () => {
           <div className="text-container">
             <h2>{productData.name}</h2>
             <p>{productData.description}</p>
-            <a href="#" className="btn btn-primary">
-              See Product
-            </a>
+            <div className="btn-container">
+              <div className="product-qty">
+                <span>-</span>
+                <p>{productQty}</p>
+                <span>+</span>
+              </div>
+              <a href="#" className="btn btn-primary">
+                Add to Cart
+              </a>
+            </div>
           </div>
         </div>
 

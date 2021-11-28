@@ -1,16 +1,17 @@
 import "./assets/styles/css/main.css";
 
-import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import Home from "./pages/Home";
-import ProductDetail from "./pages/ProductDetail";
 import Products from "./pages/Products";
+import ProductDetail from "./pages/ProductDetail";
+import Checkout from "./pages/Checkout";
 
 function App() {
   return (
     <div className="app">
       <Navbar />
-      <ProductDetail />
+      <Checkout />
       <Footer />
     </div>
   );

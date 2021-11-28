@@ -441,6 +441,36 @@ section.story .img-container {
   margin-bottom: 40px;
 }
 
+.product-detail-page .product-card .text-container .btn-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.product-detail-page .product-card .text-container .btn-container .product-qty {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #f1f1f1;
+  font-weight: bold;
+  margin-right: 16px;
+}
+
+.product-detail-page .product-card .text-container .btn-container .product-qty span {
+  padding: 0 20px;
+  opacity: 50%;
+  cursor: pointer;
+}
+
+.product-detail-page .product-card .text-container .btn-container .product-qty p {
+  display: inline;
+  margin: 0;
+  padding: 0 22px;
+}
+
 .product-detail-page .product-detail .features {
   -ms-grid-column: 1;
   -ms-grid-column-span: 7;
@@ -529,5 +559,61 @@ section.story .img-container {
 
 .product-detail-page section.related-products .card-container .related-product-card h4 {
   margin-bottom: 32px;
+}
+
+.checkout-page header {
+  height: 108px;
+  background-color: #101010;
+  margin-bottom: 80px;
+}
+
+.checkout-page a.go-back {
+  text-decoration: none;
+  grid-column: span 12;
+}
+
+.checkout-page .checkout-form {
+  grid-column: span 8;
+}
+
+.checkout-page .checkout-form label {
+  display: block;
+}
+
+.checkout-page .checkout-form input {
+  width: 100%;
+}
+
+.checkout-page .checkout-form .form-section {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  -webkit-column-gap: 16px;
+          column-gap: 16px;
+  margin: 0 48px;
+}
+
+.checkout-page .checkout-form .form-section .form-title {
+  grid-column: span 2;
+}
+
+.checkout-page .checkout-form .form-section .span-2 {
+  grid-column: span 2;
+}
+
+.checkout-page .checkout-form .form-section .half-right {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2/3;
+}
+
+.checkout-page .checkout-form .form-section .payment-detail label,
+.checkout-page .checkout-form .form-section .payment-detail input {
+  display: inline;
+}
+
+.checkout-page .summary {
+  grid-column: span 4;
 }
 /*# sourceMappingURL=main.css.map */

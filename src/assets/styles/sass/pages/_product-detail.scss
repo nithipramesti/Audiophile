@@ -30,6 +30,30 @@
       p {
         margin-bottom: 40px;
       }
+
+      .btn-container {
+        display: flex;
+
+        .product-qty {
+          display: flex;
+          align-items: center;
+          background-color: $color-grey;
+          font-weight: bold;
+          margin-right: 16px;
+
+          span {
+            padding: 0 20px;
+            opacity: 50%;
+            cursor: pointer;
+          }
+
+          p {
+            display: inline;
+            margin: 0;
+            padding: 0 22px;
+          }
+        }
+      }
     }
   }
 
