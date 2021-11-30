@@ -1,6 +1,30 @@
 import React from "react";
 
+import database from "../database/data.json";
+import productImg from "../assets/images/product-xx99-mark-one-headphones/desktop/image-category-page-preview.jpg";
+
 export const Checkout = () => {
+  const checkoutProductsData = database.filter((val) => {
+    return val.category === "headphones";
+  });
+
+  const renderCheckoutProducts = () => {
+    return checkoutProductsData.map((val) => {
+      return (
+        <div className="checkout-product-card">
+          <img src={productImg} alt="" />
+          <div className="text-container">
+            <div className="flex">
+              <p className="product-title">{val.name}</p>
+              <p className="product-qty">x1</p>
+            </div>
+            <p className="product-price">${val.price}</p>
+          </div>
+        </div>
+      );
+    });
+  };
+
   return (
     <div className="checkout-page">
       <header></header>
@@ -22,12 +46,12 @@ export const Checkout = () => {
             </p>
             <p>
               <label htmlFor="email">Email Address</label>
-              <input type="text" placeholder="alexei@mail.com" id="email" />
+              <input type="email" placeholder="alexei@mail.com" id="email" />
             </p>
             <p>
               <label htmlFor="phone-number">Phone Number</label>
               <input
-                type="text"
+                type="tel"
                 placeholder="+1 202-555-0136"
                 id="phone-number"
               />
@@ -71,9 +95,7 @@ export const Checkout = () => {
                 id="emoney"
                 style={{ width: "unset" }}
               />
-              <label htmlFor="emoney" style={{ display: "inline" }}>
-                e-Money
-              </label>
+              <label htmlFor="emoney">e-Money</label>
             </div>
             <div className="radio-item half-right">
               <input
@@ -83,9 +105,7 @@ export const Checkout = () => {
                 id="cod"
                 style={{ width: "unset" }}
               />
-              <label htmlFor="cod" style={{ display: "inline" }}>
-                Cash on Delivery
-              </label>
+              <label htmlFor="cod">Cash on Delivery</label>
             </div>
             <p>
               <label htmlFor="emoney-number">e-Money Number</label>
@@ -101,10 +121,11 @@ export const Checkout = () => {
         {/* SUMMARY */}
         <div className="summary">
           <h5>Summary</h5>
-          <div className="price">
+          <div className="checkout-products">{renderCheckoutProducts()}</div>
+          <di v className="price">
             <p className="price-title">Total</p>
             <p className="price-amount">$5,396</p>
-          </div>
+          </di>
           <div className="price">
             <p className="price-title">Shipping</p>
             <p className="price-amount">$50</p>
@@ -116,7 +137,7 @@ export const Checkout = () => {
 
           <div className="price total">
             <p className="price-title">Grand Total</p>
-            <p className="price-amount">$5,446</p>
+            <p className="price-amount text-orange">$5,446</p>
           </div>
 
           <a href="#" className="btn btn-primary">{`Continue & Pay`}</a>
