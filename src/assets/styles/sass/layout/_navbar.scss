@@ -1,21 +1,38 @@
-nav.navbar {
-  position: absolute;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: $width-container;
-  height: 108px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-bottom: 1px solid #979797;
+.navbar {
+  display: relative;
 
-  .nav-links {
-    .link ~ .link {
-      margin-left: 35px;
+  nav {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: $width-container;
+    height: 108px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-bottom: 1px solid #979797;
+
+    .nav-links {
+      .link ~ .link {
+        margin-left: 35px;
+      }
     }
-  }
 
-  .nav-cart {
-    height: 20px;
+    .cart-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      .nav-cart {
+        height: 20px;
+      }
+
+      .cart {
+        background-color: $color-white;
+        position: absolute;
+        top: 40px;
+        right: 0;
+      }
+    }
   }
 }

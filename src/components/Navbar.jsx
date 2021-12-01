@@ -5,24 +5,32 @@ import iconCart from "../assets/images/shared/desktop/icon-cart.svg";
 
 export const Navbar = () => {
   return (
-    <nav className="navbar">
-      <img src={logo} alt="" className="logo" />
-      <div className="nav-links">
-        <a href="#" className="link link-primary">
-          Home
+    <div className="navbar">
+      <nav>
+        <img src={logo} alt="" className="logo" />
+        <div className="nav-links">
+          <a href="#" className="link link-primary">
+            Home
+          </a>
+          <a href="#" className="link link-primary">
+            Headphones
+          </a>
+          <a href="#" className="link link-primary">
+            Speakers
+          </a>
+          <a href="#" className="link link-primary">
+            Earphones
+          </a>
+        </div>
+        <a href="#" className="nav-cart">
+          <img src={iconCart} alt="" />
         </a>
-        <a href="#" className="link link-primary">
-          Headphones
-        </a>
-        <a href="#" className="link link-primary">
-          Speakers
-        </a>
-        <a href="#" className="link link-primary">
-          Earphones
-        </a>
+      </nav>
+
+      <div className="cart-container">
+        <div className="cart">XXY12345</div>
       </div>
-      <img src={iconCart} alt="" className="nav-cart" />
-    </nav>
+    </div>
   );
 };
 

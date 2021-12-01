@@ -142,6 +142,41 @@ export const Checkout = () => {
 
           <a href="#" className="btn btn-primary">{`Continue & Pay`}</a>
         </div>
+
+        {/* CHECKOUT MODAL */}
+        <div className="modal-container grid-12">
+          <div className="checkout-modal">
+            <h3>
+              Thank You <br />
+              for Your Order
+            </h3>
+            <p>You will receive an email confirmation shortly.</p>
+            <div className="order-detail">
+              <div className="products">
+                <div className="first-product">
+                  <img src={productImg} alt="" />
+                  <div className="text-container">
+                    <div className="flex">
+                      <p className="product-title">XX99 MK II</p>
+                      <p className="product-qty">x1</p>
+                    </div>
+                    <p className="product-price">$2,999</p>
+                  </div>
+                </div>
+                <div className="other-product">
+                  <p>and 2 other item(s)</p>
+                </div>
+              </div>
+              <div className="grand-total">
+                <p className="grand-total-title">Grand Total</p>
+                <p className="grand-total-amount">${5466}</p>
+              </div>
+            </div>
+            <a href="#" className="btn btn-primary">
+              Back to Home
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   );
