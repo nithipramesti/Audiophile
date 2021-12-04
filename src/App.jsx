@@ -1,5 +1,8 @@
 import "./assets/styles/css/main.css";
 
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+//Import component for pages
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
@@ -9,11 +12,16 @@ import Checkout from "./pages/Checkout";
 
 function App() {
   return (
-    <div className="app">
+    <BrowserRouter>
       <Navbar />
-      <Home />
+      <Routes>
+        <Route element={<Home />} exact path="/" />
+        <Route element={<Products />} exact path="/categories/:category" />
+        <Route element={<ProductDetail />} exact path="/products/:id_product" />
+        <Route element={<Checkout />} exact path="/checkout" />
+      </Routes>
       <Footer />
-    </div>
+    </BrowserRouter>
   );
 }
 

@@ -3,14 +3,15 @@ import ProductCategories from "../components/ProductCategories";
 import Story from "../components/Story";
 
 import database from "../database/data.json";
-
 import productImg from "../assets/images/product-xx99-mark-one-headphones/desktop/image-category-page-preview.jpg";
 
+import { useParams } from "react-router-dom";
+
 export const Products = () => {
-  const productCategory = "Headphones";
+  const params = useParams();
 
   const productDatabase = database.filter((val) => {
-    return val.category === "headphones";
+    return val.category === params.category;
   });
 
   const renderProductCard = () => {
@@ -27,7 +28,7 @@ export const Products = () => {
           >
             <h2>{val.name}</h2>
             <p>{val.description}</p>
-            <a href="#" className="btn btn-primary">
+            <a href={`/products/${val.id}`} className="btn btn-primary">
               See Product
             </a>
           </div>
@@ -39,7 +40,7 @@ export const Products = () => {
   return (
     <div className="products-page">
       <header>
-        <h2 className="text-light">{productCategory}</h2>
+        <h2 className="text-light">{params.category}</h2>
       </header>
       <section className="products-container container">
         {renderProductCard()}

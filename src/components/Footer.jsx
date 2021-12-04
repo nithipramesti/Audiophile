@@ -10,18 +10,20 @@ export const Footer = () => {
     <footer>
       <div className="container grid-12 text-grey">
         <nav>
-          <img src={logo} alt="" className="logo" />
+          <a href="/">
+            <img src={logo} alt="" className="logo" />
+          </a>
           <div className="nav-links text-light">
-            <a href="#" className="link link-primary">
+            <a href="/" className="link link-primary">
               Home
             </a>
-            <a href="#" className="link link-primary">
+            <a href="/categories/headphones" className="link link-primary">
               Headphones
             </a>
-            <a href="#" className="link link-primary">
+            <a href="#/categories/speakers" className="link link-primary">
               Speakers
             </a>
-            <a href="#" className="link link-primary">
+            <a href="/categories/earphones" className="link link-primary">
               Earphones
             </a>
           </div>

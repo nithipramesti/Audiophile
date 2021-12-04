@@ -10,17 +10,17 @@ export const ProductCategories = () => {
     {
       img: categoryThumbnailHeadphones,
       title: "Headphones",
-      shopLink: "#",
+      shopLink: "/categories/headphones",
     },
     {
       img: categoryThumbnailSpeakers,
       title: "Speakers",
-      shopLink: "#",
+      shopLink: "/categories/speaker",
     },
     {
       img: categoryThumbnailEarphones,
       title: "Earphones",
-      shopLink: "#",
+      shopLink: "/categories/earphones",
     },
   ];
 

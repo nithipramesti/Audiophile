@@ -2,13 +2,19 @@ import React, { useState } from "react";
 
 import database from "../database/data.json";
 import productImg from "../assets/images/product-xx99-mark-one-headphones/desktop/image-category-page-preview.jpg";
+
+import { useParams } from "react-router-dom";
 import ProductCategories from "../components/ProductCategories";
 import Story from "../components/Story";
 
 export const ProductDetail = () => {
-  const productData = database[2];
+  const params = useParams();
 
-  const productDatabase = database.filter((val) => {
+  const productData = database.find(
+    (el) => el.id === Number(params.id_product)
+  );
+
+  const relatedProducts = database.filter((val) => {
     return val.category === "headphones";
   });
 
@@ -26,12 +32,12 @@ export const ProductDetail = () => {
   };
 
   const renderRelatedProductCards = () => {
-    return productDatabase.map((val) => {
+    return relatedProducts.map((val) => {
       return (
         <div className="related-product-card">
           <img src={productImg} alt="" />
           <h4>{val.name}</h4>
-          <a href="#" className="btn btn-primary">
+          <a href={`/products/${val.id}`} className="btn btn-primary">
             See Product
           </a>
         </div>
@@ -43,7 +49,10 @@ export const ProductDetail = () => {
     <div className="product-detail-page">
       <header></header>
       <div className="container">
-        <a href="#" className="go-back text-dark">
+        <a
+          href={`/categories/${productData.category}`}
+          className="go-back text-dark"
+        >
           Go Back
         </a>
         <div className="product-card">

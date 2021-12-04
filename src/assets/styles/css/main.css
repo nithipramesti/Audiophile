@@ -13,10 +13,6 @@
           box-sizing: inherit;
 }
 
-body .app {
-  position: relative;
-}
-
 body .container {
   width: 1110px;
   margin: 0 auto;
