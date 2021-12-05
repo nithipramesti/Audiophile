@@ -4,7 +4,12 @@ import Story from "../components/Story";
 function Home() {
   return (
     <div className="home">
-      <section className="hero">
+      <section
+        className="hero"
+        style={{
+          backgroundImage: `url(${process.env.PUBLIC_URL}/images/home/desktop/image-hero.jpg)`,
+        }}
+      >
         <div className="container">
           <div className="hero-text">
             <p className="sub-title">NEW PRODUCT</p>
@@ -46,7 +51,12 @@ function Home() {
         </section>
 
         <section className="featured-tertiary grid-12">
-          <div className="left-side"></div>
+          <div
+            className="left-side"
+            style={{
+              backgroundImage: `url(${process.env.PUBLIC_URL}/images/home/desktop/image-earphones-yx1.jpg)`,
+            }}
+          ></div>
           <div className="right-side grid-6">
             <div className="text-container">
               <h3 class="title">XY1 Earphone</h3>

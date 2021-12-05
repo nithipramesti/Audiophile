@@ -1,9 +1,8 @@
 import React, { useState } from "react";
+import { useParams } from "react-router-dom";
 
 import database from "../database/data.json";
-import productImg from "../assets/images/product-xx99-mark-one-headphones/desktop/image-category-page-preview.jpg";
 
-import { useParams } from "react-router-dom";
 import ProductCategories from "../components/ProductCategories";
 import Story from "../components/Story";
 
@@ -14,9 +13,7 @@ export const ProductDetail = () => {
     (el) => el.id === Number(params.id_product)
   );
 
-  const relatedProducts = database.filter((val) => {
-    return val.category === "headphones";
-  });
+  const relatedProducts = productData.others;
 
   const [productQty, setProductQty] = useState(1);
 
@@ -35,7 +32,7 @@ export const ProductDetail = () => {
     return relatedProducts.map((val) => {
       return (
         <div className="related-product-card">
-          <img src={productImg} alt="" />
+          <img src={`${process.env.PUBLIC_URL}` + val.image.desktop} alt="" />
           <h4>{val.name}</h4>
           <a href={`/products/${val.id}`} className="btn btn-primary">
             See Product
@@ -56,7 +53,7 @@ export const ProductDetail = () => {
           Go Back
         </a>
         <div className="product-card">
-          <img src={productImg} />
+          <img src={`${process.env.PUBLIC_URL}` + productData.image.desktop} />
           <div className="text-container">
             <h2>{productData.name}</h2>
             <p>{productData.description}</p>
@@ -85,9 +82,24 @@ export const ProductDetail = () => {
         </div>
 
         <div className="img-gallery grid-12">
-          <div className="img-1"></div>
-          <div className="img-2"></div>
-          <div className="img-3"></div>
+          <div
+            className="img-1"
+            style={{
+              backgroundImage: `url(${process.env.PUBLIC_URL}${productData.gallery.first.desktop})`,
+            }}
+          ></div>
+          <div
+            className="img-2"
+            style={{
+              backgroundImage: `url(${process.env.PUBLIC_URL}${productData.gallery.second.desktop})`,
+            }}
+          ></div>
+          <div
+            className="img-3"
+            style={{
+              backgroundImage: `url(${process.env.PUBLIC_URL}${productData.gallery.third.desktop})`,
+            }}
+          ></div>
         </div>
       </div>
 

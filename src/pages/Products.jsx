@@ -3,7 +3,6 @@ import ProductCategories from "../components/ProductCategories";
 import Story from "../components/Story";
 
 import database from "../database/data.json";
-import productImg from "../assets/images/product-xx99-mark-one-headphones/desktop/image-category-page-preview.jpg";
 
 import { useParams } from "react-router-dom";
 
@@ -19,7 +18,7 @@ export const Products = () => {
       return (
         <div className="product-card">
           <img
-            src={productImg}
+            src={`${process.env.PUBLIC_URL}` + val.image.desktop}
             style={{ order: `${index % 2 === 0 ? "1" : "2"}` }}
           />
           <div

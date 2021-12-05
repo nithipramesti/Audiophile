@@ -293,12 +293,10 @@ section.story .img-container {
   -ms-grid-column-span: 6;
   grid-column: 7/13;
   height: 100%;
-  background-image: url("/src/assets/images/shared/desktop/image-best-gear.jpg");
   background-size: cover;
 }
 
 .home section.hero {
-  background-image: url("/src/assets/images/home/desktop/image-hero.jpg");
   background-size: contain;
   color: #fff;
   padding: 225px 0 160px 0;
@@ -356,7 +354,6 @@ section.story .img-container {
   -ms-grid-column-span: 6;
   grid-column: 1/7;
   height: 100%;
-  background-image: url("/src/assets/images/home/desktop/image-earphones-yx1.jpg");
   background-position: center;
   background-size: cover;
 }
@@ -537,14 +534,6 @@ section.story .img-container {
   height: 100%;
 }
 
-.product-detail-page .img-gallery .img-1 {
-  background-image: url("/src/assets/images/product-xx99-mark-one-headphones/desktop/image-gallery-1.jpg");
-}
-
-.product-detail-page .img-gallery .img-2 {
-  background-image: url("/src/assets/images/product-xx99-mark-one-headphones/desktop/image-gallery-2.jpg");
-}
-
 .product-detail-page .img-gallery .img-3 {
   -ms-grid-column: 6;
   -ms-grid-column-span: 7;
@@ -552,7 +541,6 @@ section.story .img-container {
   -ms-grid-row: 1;
   -ms-grid-row-span: 2;
   grid-row: 1/3;
-  background-image: url("/src/assets/images/product-xx99-mark-one-headphones/desktop/image-gallery-3.jpg");
 }
 
 .product-detail-page section.related-products {

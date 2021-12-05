@@ -1,7 +1,6 @@
 import React from "react";
 
 import database from "../database/data.json";
-import productImg from "../assets/images/product-xx99-mark-one-headphones/desktop/image-category-page-preview.jpg";
 
 export const Checkout = () => {
   const checkoutProductsData = database.filter((val) => {
@@ -12,7 +11,7 @@ export const Checkout = () => {
     return checkoutProductsData.map((val) => {
       return (
         <div className="checkout-product-card">
-          <img src={productImg} alt="" />
+          <img src={`${process.env.PUBLIC_URL}` + val.image.desktop} alt="" />
           <div className="text-container">
             <div className="flex">
               <p className="product-title">{val.name}</p>
@@ -154,7 +153,13 @@ export const Checkout = () => {
             <div className="order-detail">
               <div className="products">
                 <div className="first-product">
-                  <img src={productImg} alt="" />
+                  <img
+                    src={
+                      `${process.env.PUBLIC_URL}` +
+                      checkoutProductsData[0].image.desktop
+                    }
+                    alt=""
+                  />
                   <div className="text-container">
                     <div className="flex">
                       <p className="product-title">XX99 MK II</p>

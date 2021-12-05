@@ -16,7 +16,12 @@ export const Story = () => {
           best place to buy your portable audio equipment.
         </p>
       </div>
-      <div className="img-container"></div>
+      <div
+        className="img-container"
+        style={{
+          backgroundImage: `url(${process.env.PUBLIC_URL}/images/shared/desktop/image-best-gear.jpg)`,
+        }}
+      ></div>
     </section>
   );
 };
