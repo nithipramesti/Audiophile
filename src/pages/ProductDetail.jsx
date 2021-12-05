@@ -17,6 +17,11 @@ export const ProductDetail = () => {
 
   const [productQty, setProductQty] = useState(1);
 
+  const formatter = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+  });
+
   const renderInTheBox = () => {
     return productData.includes.map((val) => {
       return (
@@ -57,6 +62,7 @@ export const ProductDetail = () => {
           <div className="text-container">
             <h2>{productData.name}</h2>
             <p>{productData.description}</p>
+            <h5>{formatter.format(productData.price)}</h5>
             <div className="btn-container">
               <div className="product-qty">
                 <span>-</span>

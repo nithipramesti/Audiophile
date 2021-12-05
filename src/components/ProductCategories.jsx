@@ -29,10 +29,15 @@ export const ProductCategories = () => {
     return productCategoriesData.map((category) => {
       return (
         <div className="product-category-card">
-          <img src={category.img} alt="" />
+          <img className="img-category" src={category.img} alt="" />
           <h5>{category.title}</h5>
-          <a className="link link-black" href={category.shopLink}>
-            Shop
+          <a className="link" href={category.shopLink}>
+            <p className="text-dark-faded">Shop</p>
+            <img
+              src={`${process.env.PUBLIC_URL}/images/shared/desktop/icon-arrow-right.svg`}
+              alt=""
+              className="icon-arrow"
+            />
           </a>
         </div>
       );
@@ -40,7 +45,10 @@ export const ProductCategories = () => {
   };
 
   return (
-    <section className="product-categories grid-12 container">
+    <section
+      className="product-categories grid-12 container"
+      id="product-categories"
+    >
       {renderProductCategories()}
     </section>
   );

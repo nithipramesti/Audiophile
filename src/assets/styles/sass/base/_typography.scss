@@ -18,6 +18,11 @@ p {
   color: $color-black;
 }
 
+.text-dark-faded {
+  color: $color-black;
+  opacity: 50%;
+}
+
 .text-grey {
   color: $color-grey;
 }

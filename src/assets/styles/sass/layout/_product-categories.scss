@@ -11,7 +11,7 @@ section.product-categories {
     text-align: center;
     padding-top: 110px;
 
-    img {
+    .img-category {
       position: absolute;
       height: 200px;
       top: -80px;
@@ -19,8 +19,22 @@ section.product-categories {
       transform: translateX(-50%);
     }
 
-    h4 {
+    h5 {
       margin-bottom: 15px;
+    }
+
+    .link {
+      display: inline-flex;
+      align-items: center;
+
+      p {
+        margin: 0;
+      }
+
+      .icon-arrow {
+        height: 10px;
+        margin-left: 7px;
+      }
     }
   }
 }

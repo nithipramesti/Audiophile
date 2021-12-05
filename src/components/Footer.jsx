@@ -20,7 +20,7 @@ export const Footer = () => {
             <a href="/categories/headphones" className="link link-primary">
               Headphones
             </a>
-            <a href="#/categories/speakers" className="link link-primary">
+            <a href="/categories/speakers" className="link link-primary">
               Speakers
             </a>
             <a href="/categories/earphones" className="link link-primary">
