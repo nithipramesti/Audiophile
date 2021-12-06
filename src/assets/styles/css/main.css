@@ -46,6 +46,10 @@ body .grid-2 {
   row-gap: 48px;
 }
 
+.hidden {
+  display: none;
+}
+
 body {
   font-family: "Manrope", sans-serif;
 }
@@ -231,25 +235,149 @@ footer .copyright {
 }
 
 .navbar nav .cart-container {
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
+  z-index: 999;
 }
 
 .navbar nav .cart-container .nav-cart {
   height: 20px;
+  cursor: pointer;
 }
 
 .navbar nav .cart-container .cart {
   background-color: #ffffff;
   position: absolute;
-  top: 40px;
+  top: 50px;
   right: 0;
+  width: 460px;
+  padding: 31px;
+  border-radius: 8px;
+}
+
+.navbar nav .cart-container .cart header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 31px;
+}
+
+.navbar nav .cart-container .cart header a {
+  font-size: 15px;
+}
+
+.navbar nav .cart-container .cart .products-container .cart-product-card {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 64px auto;
+      grid-template-columns: 64px auto;
+  -webkit-column-gap: 16px;
+          column-gap: 16px;
+  font-weight: bold;
+}
+
+.navbar nav .cart-container .cart .products-container .cart-product-card img {
+  height: 64px;
+  border-radius: 8px;
+}
+
+.navbar nav .cart-container .cart .products-container .cart-product-card p {
+  margin: 0;
+}
+
+.navbar nav .cart-container .cart .products-container .cart-product-card .flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+.navbar nav .cart-container .cart .products-container .cart-product-card .flex .product-qty {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #f1f1f1;
+  font-weight: bold;
+  height: 32px;
+}
+
+.navbar nav .cart-container .cart .products-container .cart-product-card .flex .product-qty span {
+  padding: 0 12px;
+  opacity: 50%;
+  cursor: pointer;
+}
+
+.navbar nav .cart-container .cart .products-container .cart-product-card .flex .product-qty p {
+  font-size: 13px;
+  display: inline;
+  margin: 0;
+  padding: 0 10px;
+}
+
+.navbar nav .cart-container .cart .products-container .cart-product-card .product-price {
+  font-size: 14px;
+}
+
+.navbar nav .cart-container .cart .products-container .cart-product-card ~ .cart-product-card {
+  margin-top: 24px;
+}
+
+.navbar nav .cart-container .cart .total {
+  margin-top: 32px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.navbar nav .cart-container .cart .total p {
+  margin: 0;
+}
+
+.navbar nav .cart-container .cart .total .total-title {
+  text-transform: uppercase;
+}
+
+.navbar nav .cart-container .cart .total .total-amount {
+  font-weight: bold;
+}
+
+.navbar nav .cart-container .cart .btn {
+  width: 100%;
+  text-align: center;
+  margin-top: 24px;
+}
+
+.bg-overlay {
+  content: "";
+  position: fixed;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(16, 16, 16, 0.5);
 }
 
 section.product-categories {
   margin-top: 120px;
   position: relative;
+  z-index: -1;
 }
 
 section.product-categories .product-category-card {
@@ -501,7 +629,10 @@ section.story .img-container {
   margin-right: 16px;
 }
 
-.product-detail-page .product-card .text-container .btn-container .product-qty span {
+.product-detail-page .product-card .text-container .btn-container .product-qty button {
+  font-size: inherit;
+  font-weight: inherit;
+  border: none;
   padding: 0 20px;
   opacity: 50%;
   cursor: pointer;
@@ -511,6 +642,7 @@ section.story .img-container {
   display: inline;
   margin: 0;
   padding: 0 22px;
+  width: 4px;
 }
 
 .product-detail-page .product-detail .features {

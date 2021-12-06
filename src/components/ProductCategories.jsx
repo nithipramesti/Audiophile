@@ -1,24 +1,20 @@
 import React from "react";
 
-import categoryThumbnailHeadphones from "../assets/images/shared/desktop/image-category-thumbnail-headphones.png";
-import categoryThumbnailEarphones from "../assets/images/shared/desktop/image-category-thumbnail-earphones.png";
-import categoryThumbnailSpeakers from "../assets/images/shared/desktop/image-category-thumbnail-speakers.png";
-
 export const ProductCategories = () => {
   //object for storing product categories
   const productCategoriesData = [
     {
-      img: categoryThumbnailHeadphones,
+      img: `${process.env.PUBLIC_URL}/images/shared/desktop/image-category-thumbnail-headphones.png`,
       title: "Headphones",
       shopLink: "/categories/headphones",
     },
     {
-      img: categoryThumbnailSpeakers,
+      img: `${process.env.PUBLIC_URL}/images/shared/desktop/image-category-thumbnail-earphones.png`,
       title: "Speakers",
       shopLink: "/categories/speakers",
     },
     {
-      img: categoryThumbnailEarphones,
+      img: `${process.env.PUBLIC_URL}/images/shared/desktop/image-category-thumbnail-speakers.png`,
       title: "Earphones",
       shopLink: "/categories/earphones",
     },

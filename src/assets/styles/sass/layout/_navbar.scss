@@ -19,20 +19,124 @@
     }
 
     .cart-container {
-      position: absolute;
+      position: relative;
       top: 0;
       left: 0;
+      z-index: 999;
 
       .nav-cart {
         height: 20px;
+        cursor: pointer;
       }
 
       .cart {
         background-color: $color-white;
         position: absolute;
-        top: 40px;
+        top: 50px;
         right: 0;
+        width: 460px;
+        padding: 31px;
+        border-radius: $border-radius;
+
+        header {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 31px;
+
+          a {
+            font-size: 15px;
+          }
+        }
+
+        .products-container {
+          .cart-product-card {
+            display: grid;
+            grid-template-columns: 64px auto;
+            column-gap: 16px;
+            font-weight: bold;
+
+            img {
+              height: 64px;
+              border-radius: $border-radius;
+            }
+
+            p {
+              margin: 0;
+            }
+
+            .flex {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              width: 100%;
+
+              .product-qty {
+                display: flex;
+                align-items: center;
+                background-color: $color-grey;
+                font-weight: bold;
+                height: 32px;
+
+                span {
+                  padding: 0 12px;
+                  opacity: 50%;
+                  cursor: pointer;
+                }
+
+                p {
+                  font-size: 13px;
+                  display: inline;
+                  margin: 0;
+                  padding: 0 10px;
+                }
+              }
+            }
+
+            .product-price {
+              font-size: 14px;
+            }
+          }
+
+          .cart-product-card ~ .cart-product-card {
+            margin-top: 24px;
+          }
+        }
+
+        .total {
+          margin-top: 32px;
+          display: flex;
+          justify-content: space-between;
+
+          p {
+            margin: 0;
+          }
+
+          .total-title {
+            text-transform: uppercase;
+          }
+
+          .total-amount {
+            font-weight: bold;
+          }
+        }
+
+        .btn {
+          width: 100%;
+          text-align: center;
+          margin-top: 24px;
+        }
       }
     }
   }
+}
+
+.bg-overlay {
+  content: "";
+  position: fixed;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba($color: $color-black, $alpha: 0.5);
 }

@@ -7,21 +7,58 @@ import ProductCategories from "../components/ProductCategories";
 import Story from "../components/Story";
 
 export const ProductDetail = () => {
+  //get route params value
   const params = useParams();
 
+  //get product data from database using param
   const productData = database.find(
     (el) => el.id === Number(params.id_product)
   );
 
+  //get related products data from database
   const relatedProducts = productData.others;
 
+  //state for product quantity (to be added to cart)
   const [productQty, setProductQty] = useState(1);
 
+  //function to edit product quantity (to be added to cart)
+  const editQty = (operator) => {
+    //add quantity
+    if (operator === "add") {
+      if (productQty <= 3) {
+        setProductQty(productQty + 1);
+      }
+    }
+    //subtract quantity
+    else if (operator === "subtract") {
+      if (productQty > 1) {
+        setProductQty(productQty - 1);
+      }
+    }
+  };
+
+  //state to save cart data -- for rerender?
+  const [cartData, setCartData] = useState([]);
+
+  //function to add product to cart
+  const addToCart = (qty) => {
+    //save product data and qty to an object
+    const cartItem = {
+      product: productData,
+      qty: productQty,
+    };
+
+    //Save cartItem into the local storage, but must stringify first!
+    localStorage.setItem("Audiophile Cart", JSON.stringify(cartItem));
+  };
+
+  //function to format price
   const formatter = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
   });
 
+  //function to render what's in the box
   const renderInTheBox = () => {
     return productData.includes.map((val) => {
       return (
@@ -33,6 +70,7 @@ export const ProductDetail = () => {
     });
   };
 
+  //function to render related products
   const renderRelatedProductCards = () => {
     return relatedProducts.map((val) => {
       return (
@@ -47,6 +85,7 @@ export const ProductDetail = () => {
     });
   };
 
+  ////////
   return (
     <div className="product-detail-page">
       <header></header>
@@ -65,9 +104,9 @@ export const ProductDetail = () => {
             <h5>{formatter.format(productData.price)}</h5>
             <div className="btn-container">
               <div className="product-qty">
-                <span>-</span>
+                <button onClick={() => editQty("subtract")}>-</button>
                 <p>{productQty}</p>
-                <span>+</span>
+                <button onClick={() => editQty("add")}>+</button>
               </div>
               <a href="#" className="btn btn-primary">
                 Add to Cart

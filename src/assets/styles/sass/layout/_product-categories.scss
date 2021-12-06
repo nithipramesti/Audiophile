@@ -1,6 +1,7 @@
 section.product-categories {
   margin-top: 120px;
   position: relative;
+  z-index: -1;
 
   .product-category-card {
     grid-column: span 4;

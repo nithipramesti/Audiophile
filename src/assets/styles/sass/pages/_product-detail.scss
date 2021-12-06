@@ -45,7 +45,10 @@
           font-weight: bold;
           margin-right: 16px;
 
-          span {
+          button {
+            font-size: inherit;
+            font-weight: inherit;
+            border: none;
             padding: 0 20px;
             opacity: 50%;
             cursor: pointer;
@@ -55,6 +58,7 @@
             display: inline;
             margin: 0;
             padding: 0 22px;
+            width: 4px;
           }
         }
       }

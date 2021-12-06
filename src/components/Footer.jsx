@@ -1,17 +1,16 @@
 import React from "react";
 
-import logo from "../assets/images/shared/desktop/logo.svg";
-import iconFacebook from "../assets/images/shared/desktop/icon-facebook.svg";
-import iconTwitter from "../assets/images/shared/desktop/icon-twitter.svg";
-import iconInstagram from "../assets/images/shared/desktop/icon-instagram.svg";
-
 export const Footer = () => {
   return (
     <footer>
       <div className="container grid-12 text-grey">
         <nav>
           <a href="/">
-            <img src={logo} alt="" className="logo" />
+            <img
+              src={`${process.env.PUBLIC_URL}/images/shared/desktop/logo.svg`}
+              alt=""
+              className="logo"
+            />
           </a>
           <div className="nav-links text-light">
             <a href="/" className="link link-primary">
@@ -36,13 +35,22 @@ export const Footer = () => {
         </p>
         <div className="social">
           <a href="#" className="social-button">
-            <img src={iconFacebook} alt="" />
+            <img
+              src={`${process.env.PUBLIC_URL}/images/shared/desktop/icon-facebook.svg`}
+              alt=""
+            />
           </a>
           <a href="#" className="social-button">
-            <img src={iconTwitter} alt="" />
+            <img
+              src={`${process.env.PUBLIC_URL}/images/shared/desktop/icon-twitter.svg`}
+              alt=""
+            />
           </a>
           <a href="#" className="social-button">
-            <img src={iconInstagram} alt="" />
+            <img
+              src={`${process.env.PUBLIC_URL}/images/shared/desktop/icon-instagram.svg`}
+              alt=""
+            />
           </a>
         </div>
         <div className="copyright">Built with React by Nithi</div>
