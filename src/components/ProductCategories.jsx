@@ -9,12 +9,12 @@ export const ProductCategories = () => {
       shopLink: "/categories/headphones",
     },
     {
-      img: `${process.env.PUBLIC_URL}/images/shared/desktop/image-category-thumbnail-earphones.png`,
+      img: `${process.env.PUBLIC_URL}/images/shared/desktop/image-category-thumbnail-speakers.png`,
       title: "Speakers",
       shopLink: "/categories/speakers",
     },
     {
-      img: `${process.env.PUBLIC_URL}/images/shared/desktop/image-category-thumbnail-speakers.png`,
+      img: `${process.env.PUBLIC_URL}/images/shared/desktop/image-category-thumbnail-earphones.png`,
       title: "Earphones",
       shopLink: "/categories/earphones",
     },

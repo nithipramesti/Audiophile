@@ -11,6 +11,7 @@
     text-decoration: none;
     grid-column: span 12;
     margin-bottom: 38px;
+    cursor: pointer;
   }
 
   h3 {
@@ -104,13 +105,13 @@
     .checkout-products {
       .checkout-product-card {
         display: grid;
-        grid-template-columns: 64px auto;
+        grid-template-columns: 60px auto;
         column-gap: 16px;
         margin-bottom: 32px;
         font-weight: bold;
 
         img {
-          height: 64px;
+          height: 60px;
           border-radius: $border-radius;
         }
 
@@ -161,10 +162,12 @@
     .btn {
       margin-top: 32px;
       width: 100%;
+      text-align: center;
     }
   }
 
   .modal-container {
+    display: none;
     top: 0;
     left: 0;
     position: fixed;

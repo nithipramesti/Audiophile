@@ -130,6 +130,7 @@ h5 {
   letter-spacing: 1px;
   padding: 15px 30px;
   display: inline-block;
+  cursor: pointer;
 }
 
 .btn-primary {
@@ -302,6 +303,15 @@ footer .copyright {
   width: 100%;
 }
 
+.navbar nav .cart-container .cart .products-container .cart-product-card .flex a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.navbar nav .cart-container .cart .products-container .cart-product-card .flex a:hover {
+  text-decoration: underline;
+}
+
 .navbar nav .cart-container .cart .products-container .cart-product-card .flex .product-qty {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -314,7 +324,8 @@ footer .copyright {
   height: 32px;
 }
 
-.navbar nav .cart-container .cart .products-container .cart-product-card .flex .product-qty span {
+.navbar nav .cart-container .cart .products-container .cart-product-card .flex .product-qty button {
+  border: none;
   padding: 0 12px;
   opacity: 50%;
   cursor: pointer;
@@ -366,7 +377,6 @@ footer .copyright {
 .bg-overlay {
   content: "";
   position: fixed;
-  z-index: 0;
   top: 0;
   left: 0;
   height: 100vh;
@@ -377,7 +387,6 @@ footer .copyright {
 section.product-categories {
   margin-top: 120px;
   position: relative;
-  z-index: -1;
 }
 
 section.product-categories .product-category-card {
@@ -740,6 +749,7 @@ section.story .img-container {
   text-decoration: none;
   grid-column: span 12;
   margin-bottom: 38px;
+  cursor: pointer;
 }
 
 .checkout-page h3 {
@@ -842,8 +852,8 @@ section.story .img-container {
 .checkout-page .summary .checkout-products .checkout-product-card {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 64px auto;
-      grid-template-columns: 64px auto;
+  -ms-grid-columns: 60px auto;
+      grid-template-columns: 60px auto;
   -webkit-column-gap: 16px;
           column-gap: 16px;
   margin-bottom: 32px;
@@ -851,7 +861,7 @@ section.story .img-container {
 }
 
 .checkout-page .summary .checkout-products .checkout-product-card img {
-  height: 64px;
+  height: 60px;
   border-radius: 8px;
 }
 
@@ -908,9 +918,11 @@ section.story .img-container {
 .checkout-page .summary .btn {
   margin-top: 32px;
   width: 100%;
+  text-align: center;
 }
 
 .checkout-page .modal-container {
+  display: none;
   top: 0;
   left: 0;
   position: fixed;

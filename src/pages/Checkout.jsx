@@ -1,34 +1,74 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import database from "../database/data.json";
 
 export const Checkout = () => {
-  const checkoutProductsData = database.filter((val) => {
-    return val.category === "headphones";
-  });
+  let [cartData, setCartData] = useState([]);
 
   const renderCheckoutProducts = () => {
-    return checkoutProductsData.map((val) => {
+    return cartData.map((val) => {
       return (
         <div className="checkout-product-card">
-          <img src={`${process.env.PUBLIC_URL}` + val.image.desktop} alt="" />
+          <img
+            src={`${process.env.PUBLIC_URL}` + val.productData.image.desktop}
+            alt=""
+          />
           <div className="text-container">
             <div className="flex">
-              <p className="product-title">{val.name}</p>
-              <p className="product-qty">x1</p>
+              <p className="product-title">{val.productData.name}</p>
+              <p className="product-qty">x{val.cartQty}</p>
             </div>
-            <p className="product-price">${val.price}</p>
+            <p className="product-price">${val.productData.price}</p>
           </div>
         </div>
       );
     });
   };
 
+  const totalProductsPrice = () => {
+    let total = 0;
+    cartData.map((val) => {
+      total += val.productData.price * val.cartQty;
+    });
+
+    return total;
+  };
+
+  const shippingPrice = () => {
+    return 50;
+  };
+
+  const vatPrice = () => {
+    return (20 / 100) * totalProductsPrice();
+  };
+
+  const grandTotalPrice = () => {
+    return totalProductsPrice() + shippingPrice() + vatPrice();
+  };
+
+  //function to format price
+  const formatter = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+  });
+
+  //get cart data from local storage
+  useEffect(() => {
+    let cartDataLocalStorage = JSON.parse(
+      localStorage.getItem("Audiophile Cart")
+    );
+
+    if (cartDataLocalStorage) {
+      setCartData(cartDataLocalStorage);
+    }
+  }, []);
+
+  /////////
   return (
     <div className="checkout-page">
       <header></header>
       <div className="container grid-12">
-        <a href="#" className="go-back text-dark">
+        <a onClick={() => window.history.back()} className="go-back text-dark">
           Go Back
         </a>
 
@@ -123,20 +163,24 @@ export const Checkout = () => {
           <div className="checkout-products">{renderCheckoutProducts()}</div>
           <di v className="price">
             <p className="price-title">Total</p>
-            <p className="price-amount">$5,396</p>
+            <p className="price-amount">
+              {formatter.format(totalProductsPrice())}
+            </p>
           </di>
           <div className="price">
             <p className="price-title">Shipping</p>
-            <p className="price-amount">$50</p>
+            <p className="price-amount">{formatter.format(shippingPrice())}</p>
           </div>
           <div className="price">
             <p className="price-title">VAT (Included)</p>
-            <p className="price-amount">$1,079</p>
+            <p className="price-amount">{formatter.format(vatPrice())}</p>
           </div>
 
           <div className="price total">
             <p className="price-title">Grand Total</p>
-            <p className="price-amount text-orange">$5,446</p>
+            <p className="price-amount text-orange">
+              {formatter.format(grandTotalPrice())}
+            </p>
           </div>
 
           <a href="#" className="btn btn-primary">{`Continue & Pay`}</a>
@@ -153,13 +197,13 @@ export const Checkout = () => {
             <div className="order-detail">
               <div className="products">
                 <div className="first-product">
-                  <img
+                  {/* <img
                     src={
                       `${process.env.PUBLIC_URL}` +
-                      checkoutProductsData[0].image.desktop
+                      cartData[0].productData.image.desktop
                     }
                     alt=""
-                  />
+                  /> */}
                   <div className="text-container">
                     <div className="flex">
                       <p className="product-title">XX99 MK II</p>

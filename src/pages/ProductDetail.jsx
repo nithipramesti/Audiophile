@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import database from "../database/data.json";
@@ -38,18 +38,30 @@ export const ProductDetail = () => {
   };
 
   //state to save cart data -- for rerender?
-  const [cartData, setCartData] = useState([]);
+  let [cartData, setCartData] = useState([]);
 
   //function to add product to cart
-  const addToCart = (qty) => {
+  const addToCart = () => {
+    let cartDataTemp = cartData;
     //save product data and qty to an object
     const cartItem = {
-      product: productData,
-      qty: productQty,
+      productData: productData,
+      cartQty: productQty,
     };
 
+    cartDataTemp.push(cartItem);
+
     //Save cartItem into the local storage, but must stringify first!
-    localStorage.setItem("Audiophile Cart", JSON.stringify(cartItem));
+    localStorage.setItem("Audiophile Cart", JSON.stringify(cartDataTemp));
+
+    //update cart data in state (and re-render)
+    let cartDataLocalStorage = JSON.parse(
+      localStorage.getItem("Audiophile Cart")
+    );
+
+    if (cartDataLocalStorage) {
+      setCartData(cartDataLocalStorage);
+    }
   };
 
   //function to format price
@@ -85,6 +97,17 @@ export const ProductDetail = () => {
     });
   };
 
+  //get cart data from local storage
+  useEffect(() => {
+    let cartDataLocalStorage = JSON.parse(
+      localStorage.getItem("Audiophile Cart")
+    );
+
+    if (cartDataLocalStorage) {
+      setCartData(cartDataLocalStorage);
+    }
+  }, []);
+
   ////////
   return (
     <div className="product-detail-page">
@@ -108,7 +131,7 @@ export const ProductDetail = () => {
                 <p>{productQty}</p>
                 <button onClick={() => editQty("add")}>+</button>
               </div>
-              <a href="#" className="btn btn-primary">
+              <a onClick={addToCart} className="btn btn-primary">
                 Add to Cart
               </a>
             </div>
