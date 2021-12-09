@@ -46,6 +46,10 @@ body .grid-2 {
   row-gap: 48px;
 }
 
+.pointer {
+  cursor: pointer;
+}
+
 .hidden {
   display: none;
 }
@@ -267,8 +271,13 @@ footer .copyright {
   margin-bottom: 31px;
 }
 
-.navbar nav .cart-container .cart header a {
+.navbar nav .cart-container .cart header a.remove-all {
   font-size: 15px;
+  cursor: pointer;
+}
+
+.navbar nav .cart-container .cart header a.remove-all:hover {
+  text-decoration: underline;
 }
 
 .navbar nav .cart-container .cart .products-container .cart-product-card {

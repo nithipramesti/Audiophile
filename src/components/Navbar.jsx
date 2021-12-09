@@ -1,63 +1,127 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-
-import database from "../database/data.json";
+import { useDispatch, useSelector } from "react-redux";
 
 export const Navbar = () => {
-  // const cartProductsData = database.filter((val) => {
-  //   return val.category === "headphones";
-  // });
+  //import global state for cart
+  const cartGlobalState = useSelector((state) => state.cartReducer);
+
+  //import dispatch
+  const dispatch = useDispatch();
 
   const [cartDisplayed, setCartDisplayed] = useState(false);
 
-  //state to save cart data -- for rerender?
-  let [cartData, setCartData] = useState([]);
-
   //get cart data from local storage
   useEffect(() => {
-    let cartDataLocalStorage = JSON.parse(
-      localStorage.getItem("Audiophile Cart")
-    );
+    let cartDataParse = JSON.parse(localStorage.getItem("Audiophile Cart"));
 
-    if (cartDataLocalStorage) {
-      setCartData(cartDataLocalStorage);
+    if (cartDataParse) {
+      //Set global state
+      dispatch({
+        type: "UPDATE_CART",
+        payload: {
+          cartData: cartDataParse,
+          totalQty: cartDataParse.length,
+        },
+      });
     }
   }, []);
+
+  //function to make get/set item from localStorage asynchronous
+  const asyncLocalStorage = {
+    setItem: async function (key, value) {
+      await null;
+      return localStorage.setItem(key, value);
+    },
+    getItem: async function (key) {
+      await null;
+      return localStorage.getItem(key);
+    },
+    removeItem: async function (key) {
+      await null;
+      return localStorage.removeItem(key);
+    },
+  };
 
   //function to edit product quantity (to be added to cart)
   const editCartQty = (id_product, operator) => {
     //make temp array for cart data
-    let cartDataTemp = cartData;
+    let cartDataTemp = cartGlobalState.cartData;
 
     //find selected cart item
-    let cartItemIndex = cartData.findIndex(
+    let cartItemIndex = cartGlobalState.cartData.findIndex(
       (el) => el.productData.id === id_product
     );
 
-    //add quantity
+    //add or subtract quantity
     if (operator === "add") {
       if (cartDataTemp[cartItemIndex].cartQty <= 3) {
         cartDataTemp[cartItemIndex].cartQty += 1;
       }
-    }
-
-    //subtract quantity
-    else if (operator === "subtract") {
+    } else if (operator === "subtract") {
       if (cartDataTemp[cartItemIndex].cartQty > 1) {
         cartDataTemp[cartItemIndex].cartQty -= 1;
       }
     }
 
-    //remove cart or qty = 0
+    //remove cart item (outside this function!)
 
-    //update cart data in local storage
-    localStorage.setItem("Audiophile Cart", JSON.stringify(cartDataTemp));
-    setCartData(cartDataTemp); //NOT WORKING
+    //update cart data in local storage & update cart data
+
+    const cartDataString = JSON.stringify(cartDataTemp);
+
+    asyncLocalStorage
+      .setItem("Audiophile Cart", cartDataString)
+      .then(function () {
+        return asyncLocalStorage.getItem("Audiophile Cart");
+      })
+      .then(function (value) {
+        if (value) {
+          let cartDataParse = JSON.parse(value);
+
+          //Set global state
+          dispatch({
+            type: "UPDATE_CART",
+            payload: {
+              cartData: cartDataParse,
+              totalQty: cartDataParse.length,
+            },
+          });
+        }
+      });
+  };
+
+  //function to remove ALL cart item
+  const removeAllCartItem = () => {
+    //update cart data in local storage & update cart data
+    asyncLocalStorage
+      .removeItem("Audiophile Cart")
+      .then(function () {
+        return asyncLocalStorage.getItem("Audiophile Cart");
+      })
+      .then(function (value) {
+        if (value) {
+          let cartDataParse = JSON.parse(value);
+
+          //Set global state
+          dispatch({
+            type: "UPDATE_CART",
+            payload: {
+              cartData: cartDataParse,
+              totalQty: cartDataParse.length,
+            },
+          });
+        } else {
+          //Set global state
+          dispatch({
+            type: "RESET_CART",
+          });
+        }
+      });
   };
 
   const totalProductsPrice = () => {
     let total = 0;
-    cartData.map((val) => {
+    cartGlobalState.cartData.map((val) => {
       total += val.productData.price * val.cartQty;
     });
 
@@ -71,8 +135,8 @@ export const Navbar = () => {
   });
 
   const renderCartProducts = () => {
-    if (cartData.length) {
-      return cartData.map((val) => {
+    if (cartGlobalState.cartData.length) {
+      return cartGlobalState.cartData.map((val) => {
         return (
           <div className="cart-product-card">
             <img
@@ -115,6 +179,7 @@ export const Navbar = () => {
     }
   };
 
+  //////////
   return (
     <div className="navbar">
       <nav>
@@ -152,8 +217,11 @@ export const Navbar = () => {
           </a>
           <div className={`cart ${!cartDisplayed && "hidden"}`}>
             <header>
-              <h5>{`CART(${cartData.length})`}</h5>
-              <a href="#" className="text-dark-faded">
+              <h5>{`CART(${cartGlobalState.cartData.length})`}</h5>
+              <a
+                onClick={removeAllCartItem}
+                className="remove-all text-dark-faded"
+              >
                 Remove All
               </a>
             </header>

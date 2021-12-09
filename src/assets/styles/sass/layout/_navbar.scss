@@ -43,8 +43,13 @@
           justify-content: space-between;
           margin-bottom: 31px;
 
-          a {
+          a.remove-all {
             font-size: 15px;
+            cursor: pointer;
+          }
+
+          a.remove-all:hover {
+            text-decoration: underline;
           }
         }
 

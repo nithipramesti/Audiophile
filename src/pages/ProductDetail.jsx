@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 import database from "../database/data.json";
 
@@ -7,6 +8,12 @@ import ProductCategories from "../components/ProductCategories";
 import Story from "../components/Story";
 
 export const ProductDetail = () => {
+  //import global state for cart
+  const cartGlobalState = useSelector((state) => state.cartReducer);
+
+  //import dispatch
+  const dispatch = useDispatch();
+
   //get route params value
   const params = useParams();
 
@@ -37,12 +44,21 @@ export const ProductDetail = () => {
     }
   };
 
-  //state to save cart data -- for rerender?
-  let [cartData, setCartData] = useState([]);
+  //function to make get/set item from localStorage asynchronous
+  const asyncLocalStorage = {
+    setItem: async function (key, value) {
+      await null;
+      return localStorage.setItem(key, value);
+    },
+    getItem: async function (key) {
+      await null;
+      return localStorage.getItem(key);
+    },
+  };
 
   //function to add product to cart
   const addToCart = () => {
-    let cartDataTemp = cartData;
+    let cartDataTemp = cartGlobalState.cartData;
     //save product data and qty to an object
     const cartItem = {
       productData: productData,
@@ -51,17 +67,33 @@ export const ProductDetail = () => {
 
     cartDataTemp.push(cartItem);
 
-    //Save cartItem into the local storage, but must stringify first!
-    localStorage.setItem("Audiophile Cart", JSON.stringify(cartDataTemp));
+    //update cart data in local storage & update cart data
 
-    //update cart data in state (and re-render)
-    let cartDataLocalStorage = JSON.parse(
-      localStorage.getItem("Audiophile Cart")
-    );
+    const cartDataString = JSON.stringify(cartDataTemp);
 
-    if (cartDataLocalStorage) {
-      setCartData(cartDataLocalStorage);
-    }
+    asyncLocalStorage
+      .setItem("Audiophile Cart", cartDataString)
+      .then(function () {
+        return asyncLocalStorage.getItem("Audiophile Cart");
+      })
+      .then(function (value) {
+        if (value) {
+          let cartDataParse = JSON.parse(value);
+
+          dispatch({
+            type: "UPDATE_CART",
+            payload: {
+              cartData: cartDataParse,
+              totalQty: cartDataParse.length,
+            },
+          });
+        } else {
+          //Set global state
+          dispatch({
+            type: "RESET_CART",
+          });
+        }
+      });
   };
 
   //function to format price
@@ -96,17 +128,6 @@ export const ProductDetail = () => {
       );
     });
   };
-
-  //get cart data from local storage
-  useEffect(() => {
-    let cartDataLocalStorage = JSON.parse(
-      localStorage.getItem("Audiophile Cart")
-    );
-
-    if (cartDataLocalStorage) {
-      setCartData(cartDataLocalStorage);
-    }
-  }, []);
 
   ////////
   return (
