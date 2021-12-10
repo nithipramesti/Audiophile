@@ -772,6 +772,10 @@ section.story .img-container {
   border-radius: 8px;
 }
 
+.checkout-page .checkout-form p {
+  margin-bottom: 30px;
+}
+
 .checkout-page .checkout-form .form-title {
   font-size: 13px;
   font-weight: bold;
@@ -795,6 +799,22 @@ section.story .img-container {
   border-radius: 8px;
 }
 
+.checkout-page .checkout-form input.invalid {
+  border-color: #dd3545;
+}
+
+.checkout-page .checkout-form .invalid-msg {
+  color: #dd3545;
+  font-size: 12px;
+  margin: 0;
+  position: absolute;
+}
+
+.checkout-page .checkout-form input[type="number"]::-webkit-inner-spin-button,
+.checkout-page .checkout-form input[type="number"]::-webkit-outer-spin-button {
+  display: none;
+}
+
 .checkout-page .checkout-form .form-section {
   display: -ms-grid;
   display: grid;
@@ -816,6 +836,7 @@ section.story .img-container {
   -ms-grid-column: 2;
   -ms-grid-column-span: 1;
   grid-column: 2/3;
+  margin-bottom: 30px;
 }
 
 .checkout-page .checkout-form .payment-detail .radio-item {
@@ -931,7 +952,6 @@ section.story .img-container {
 }
 
 .checkout-page .modal-container {
-  display: none;
   top: 0;
   left: 0;
   position: fixed;

@@ -58,42 +58,47 @@ export const ProductDetail = () => {
 
   //function to add product to cart
   const addToCart = () => {
-    let cartDataTemp = cartGlobalState.cartData;
-    //save product data and qty to an object
-    const cartItem = {
-      productData: productData,
-      cartQty: productQty,
-    };
+    let indexOnCart = cartGlobalState.cartData.findIndex(
+      (el) => el.productData.id === productData.id
+    );
+    if (indexOnCart == -1) {
+      let cartDataTemp = cartGlobalState.cartData;
+      //save product data and qty to an object
+      const cartItem = {
+        productData: productData,
+        cartQty: productQty,
+      };
 
-    cartDataTemp.push(cartItem);
+      cartDataTemp.push(cartItem);
 
-    //update cart data in local storage & update cart data
+      //update cart data in local storage & update cart data
 
-    const cartDataString = JSON.stringify(cartDataTemp);
+      const cartDataString = JSON.stringify(cartDataTemp);
 
-    asyncLocalStorage
-      .setItem("Audiophile Cart", cartDataString)
-      .then(function () {
-        return asyncLocalStorage.getItem("Audiophile Cart");
-      })
-      .then(function (value) {
-        if (value) {
-          let cartDataParse = JSON.parse(value);
+      asyncLocalStorage
+        .setItem("Audiophile Cart", cartDataString)
+        .then(function () {
+          return asyncLocalStorage.getItem("Audiophile Cart");
+        })
+        .then(function (value) {
+          if (value) {
+            let cartDataParse = JSON.parse(value);
 
-          dispatch({
-            type: "UPDATE_CART",
-            payload: {
-              cartData: cartDataParse,
-              totalQty: cartDataParse.length,
-            },
-          });
-        } else {
-          //Set global state
-          dispatch({
-            type: "RESET_CART",
-          });
-        }
-      });
+            dispatch({
+              type: "UPDATE_CART",
+              payload: {
+                cartData: cartDataParse,
+                totalQty: cartDataParse.length,
+              },
+            });
+          } else {
+            //Set global state
+            dispatch({
+              type: "RESET_CART",
+            });
+          }
+        });
+    }
   };
 
   //function to format price
