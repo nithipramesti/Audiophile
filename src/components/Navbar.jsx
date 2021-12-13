@@ -244,9 +244,9 @@ export const Navbar = () => {
           <Link to="/" className="link link-primary">
             Home
           </Link>
-          <Link to="/categories/headphones" className="link link-primary">
+          <a href="/categories/headphones" className="link link-primary">
             Headphones
-          </Link>
+          </a>
           <Link to="/categories/speakers" className="link link-primary">
             Speakers
           </Link>

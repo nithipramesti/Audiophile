@@ -84,8 +84,7 @@ p {
 }
 
 .text-dark-faded {
-  color: #101010;
-  opacity: 50%;
+  color: #818181;
 }
 
 .text-grey {
@@ -847,7 +846,7 @@ section.story .img-container {
 .checkout-page .checkout-form input {
   width: 100%;
   padding: 18px 24px;
-  border: 1px solid #cfcfcf;
+  border: 1px solid #818181;
   border-radius: 8px;
 }
 
@@ -908,7 +907,7 @@ section.story .img-container {
 
 .checkout-page .checkout-form .payment-detail .radio-item label {
   width: 100%;
-  border: 1px solid #cfcfcf;
+  border: 1px solid #818181;
   border-radius: 8px;
   padding: 18px 24px 18px 52px;
 }
