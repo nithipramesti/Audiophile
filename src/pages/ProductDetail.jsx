@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import database from "../database/data.json";
@@ -167,9 +167,9 @@ export const ProductDetail = () => {
         <div className="related-product-card">
           <img src={`${process.env.PUBLIC_URL}` + val.image.desktop} alt="" />
           <h4>{val.name}</h4>
-          <a href={`/products/${val.id}`} className="btn btn-primary">
+          <Link to={`/products/${val.id}`} className="btn btn-primary">
             See Product
-          </a>
+          </Link>
         </div>
       );
     });
@@ -180,12 +180,12 @@ export const ProductDetail = () => {
     <div className="product-detail-page">
       <header></header>
       <div className="container">
-        <a
-          href={`/categories/${productData.category}`}
+        <Link
+          to={`/categories/${productData.category}`}
           className="go-back text-dark"
         >
           Go Back
-        </a>
+        </Link>
         <div className="product-card">
           <img src={`${process.env.PUBLIC_URL}` + productData.image.desktop} />
           <div className="text-container">

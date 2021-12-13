@@ -4,7 +4,7 @@ import Story from "../components/Story";
 
 import database from "../database/data.json";
 
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 export const Products = () => {
   const params = useParams();
@@ -27,9 +27,9 @@ export const Products = () => {
           >
             <h2>{val.name}</h2>
             <p>{val.description}</p>
-            <a href={`/products/${val.id}`} className="btn btn-primary">
+            <Link to={`/products/${val.id}`} className="btn btn-primary">
               See Product
-            </a>
+            </Link>
           </div>
         </div>
       );

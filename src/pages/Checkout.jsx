@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 import database from "../database/data.json";
 
@@ -504,9 +505,9 @@ export const Checkout = () => {
                 </p>
               </div>
             </div>
-            <a href="/" className="btn btn-primary">
+            <Link to="/" className="btn btn-primary">
               Back to Home
-            </a>
+            </Link>
           </div>
         </div>
       </div>

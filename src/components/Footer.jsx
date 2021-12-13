@@ -1,30 +1,31 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export const Footer = () => {
   return (
     <footer>
       <div className="container grid-12 text-grey">
         <nav>
-          <a href="/">
+          <Link to="/">
             <img
               src={`${process.env.PUBLIC_URL}/images/shared/desktop/logo.svg`}
               alt=""
               className="logo"
             />
-          </a>
+          </Link>
           <div className="nav-links text-light">
-            <a href="/" className="link link-primary">
+            <Link to="/" className="link link-primary">
               Home
-            </a>
-            <a href="/categories/headphones" className="link link-primary">
+            </Link>
+            <Link to="/categories/headphones" className="link link-primary">
               Headphones
-            </a>
-            <a href="/categories/speakers" className="link link-primary">
+            </Link>
+            <Link to="/categories/speakers" className="link link-primary">
               Speakers
-            </a>
-            <a href="/categories/earphones" className="link link-primary">
+            </Link>
+            <Link to="/categories/earphones" className="link link-primary">
               Earphones
-            </a>
+            </Link>
           </div>
         </nav>
         <p className="about">

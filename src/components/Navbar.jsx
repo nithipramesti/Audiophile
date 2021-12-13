@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 export const Navbar = () => {
   //import global state for cart
@@ -185,12 +186,12 @@ export const Navbar = () => {
             <div className="text-container">
               <div className="flex">
                 <div className="flex-left">
-                  <a
-                    href={`/products/${val.productData.id}`}
+                  <Link
+                    to={`/products/${val.productData.id}`}
                     className="product-title"
                   >
                     {val.productData.name}
-                  </a>
+                  </Link>
                   <p className="product-price">${val.productData.price}</p>
                 </div>
                 <div className="flex-right">
@@ -232,26 +233,26 @@ export const Navbar = () => {
   return (
     <div className="navbar">
       <nav>
-        <a href="/">
+        <Link to="/">
           <img
             src={`${process.env.PUBLIC_URL}/images/shared/desktop/logo.svg`}
             alt=""
             className="logo"
           />
-        </a>
+        </Link>
         <div className="nav-links">
-          <a href="/" className="link link-primary">
+          <Link to="/" className="link link-primary">
             Home
-          </a>
-          <a href="/categories/headphones" className="link link-primary">
+          </Link>
+          <Link to="/categories/headphones" className="link link-primary">
             Headphones
-          </a>
-          <a href="/categories/speakers" className="link link-primary">
+          </Link>
+          <Link to="/categories/speakers" className="link link-primary">
             Speakers
-          </a>
-          <a href="/categories/earphones" className="link link-primary">
+          </Link>
+          <Link to="/categories/earphones" className="link link-primary">
             Earphones
-          </a>
+          </Link>
         </div>
 
         <div className="cart-container">
@@ -281,8 +282,8 @@ export const Navbar = () => {
                 {formatter.format(totalProductsPrice())}
               </p>
             </div>
-            <a
-              href={cartGlobalState.totalQty > 0 && `/checkout`}
+            <Link
+              to={cartGlobalState.totalQty > 0 && `/checkout`}
               className={`btn ${
                 cartGlobalState.totalQty > 0
                   ? "btn-primary"
@@ -290,7 +291,7 @@ export const Navbar = () => {
               }`}
             >
               Checkout
-            </a>
+            </Link>
           </div>
         </div>
       </nav>

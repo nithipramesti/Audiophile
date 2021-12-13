@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import ProductCategories from "../components/ProductCategories";
 import Story from "../components/Story";
 
@@ -44,12 +45,12 @@ function Home() {
               Upgrade to premium speakers that are phenomenally built to deliver
               truly remarkable sound.
             </p>
-            <a
-              href={`/products/${featuredProducts[0].id}`}
+            <Link
+              to={`/products/${featuredProducts[0].id}`}
               className="btn btn-dark"
             >
               See Product
-            </a>
+            </Link>
           </div>
         </section>
 
@@ -61,12 +62,12 @@ function Home() {
         >
           <div className="text-container">
             <h3 class="title">{featuredProducts[1].name}</h3>
-            <a
-              href={`/products/${featuredProducts[1].id}`}
+            <Link
+              to={`/products/${featuredProducts[1].id}`}
               className="btn btn-outline"
             >
               See Product
-            </a>
+            </Link>
           </div>
         </section>
 
@@ -80,12 +81,12 @@ function Home() {
           <div className="right-side grid-6">
             <div className="text-container">
               <h3 class="title">{featuredProducts[2].name}</h3>
-              <a
-                href={`/products/${featuredProducts[2].id}`}
+              <Link
+                to={`/products/${featuredProducts[2].id}`}
                 className="btn btn-outline"
               >
                 See Product
-              </a>
+              </Link>
             </div>
           </div>
         </section>
