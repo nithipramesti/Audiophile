@@ -32,7 +32,7 @@ export const ProductDetail = () => {
   const editQty = (operator) => {
     //add quantity
     if (operator === "add") {
-      if (productQty <= 3) {
+      if (productQty < productData.stock) {
         setProductQty(productQty + 1);
       }
     }
@@ -61,8 +61,10 @@ export const ProductDetail = () => {
     let indexOnCart = cartGlobalState.cartData.findIndex(
       (el) => el.productData.id === productData.id
     );
+
+    let cartDataTemp = cartGlobalState.cartData;
+
     if (indexOnCart == -1) {
-      let cartDataTemp = cartGlobalState.cartData;
       //save product data and qty to an object
       const cartItem = {
         productData: productData,
@@ -98,6 +100,45 @@ export const ProductDetail = () => {
             });
           }
         });
+    } else {
+      //calculate total product qty in cart and qty in this page (user want to add)
+      let totalCart =
+        cartGlobalState.cartData[indexOnCart].cartQty + productQty;
+
+      if (
+        totalCart <= cartGlobalState.cartData[indexOnCart].productData.stock
+      ) {
+        //if qty that wanted to add appropriate (less or same than the stock)
+        cartDataTemp[indexOnCart].cartQty = totalCart;
+
+        //update cart data in local storage & update cart data:
+
+        const cartDataString = JSON.stringify(cartDataTemp);
+
+        asyncLocalStorage
+          .setItem("Audiophile Cart", cartDataString)
+          .then(function () {
+            return asyncLocalStorage.getItem("Audiophile Cart");
+          })
+          .then(function (value) {
+            if (value) {
+              let cartDataParse = JSON.parse(value);
+
+              dispatch({
+                type: "UPDATE_CART",
+                payload: {
+                  cartData: cartDataParse,
+                  totalQty: cartDataParse.length,
+                },
+              });
+            } else {
+              //Set global state
+              dispatch({
+                type: "RESET_CART",
+              });
+            }
+          });
+      }
     }
   };
 

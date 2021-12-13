@@ -478,6 +478,7 @@ export const Checkout = () => {
         </div>
 
         {/* CHECKOUT MODAL */}
+        <div className={`bg-overlay ${!checkoutFinished && "hidden"}`}></div>
         <div
           className={`modal-container ${
             checkoutFinished ? "grid-12" : "hidden"

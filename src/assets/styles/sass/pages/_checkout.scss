@@ -1,5 +1,6 @@
 .checkout-page {
   background-color: $color-grey;
+  padding-bottom: 200px;
 
   header {
     height: 108px;
@@ -195,6 +196,7 @@
     height: 100vh;
     background-color: rgba($color: $color-black, $alpha: 0.5);
     align-content: center;
+    z-index: 10;
 
     .checkout-modal {
       grid-column: 4/10;

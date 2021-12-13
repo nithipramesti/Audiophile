@@ -54,7 +54,10 @@ export const Navbar = () => {
 
     //add or subtract quantity
     if (operator === "add") {
-      if (cartDataTemp[cartItemIndex].cartQty <= 3) {
+      if (
+        cartDataTemp[cartItemIndex].cartQty <
+        cartDataTemp[cartItemIndex].productData.stock
+      ) {
         cartDataTemp[cartItemIndex].cartQty += 1;
       }
     } else if (operator === "subtract") {
@@ -63,7 +66,43 @@ export const Navbar = () => {
       }
     }
 
-    //remove cart item (outside this function!)
+    //update cart data in local storage & update cart data
+
+    const cartDataString = JSON.stringify(cartDataTemp);
+
+    asyncLocalStorage
+      .setItem("Audiophile Cart", cartDataString)
+      .then(function () {
+        return asyncLocalStorage.getItem("Audiophile Cart");
+      })
+      .then(function (value) {
+        if (value) {
+          let cartDataParse = JSON.parse(value);
+
+          //Set global state
+          dispatch({
+            type: "UPDATE_CART",
+            payload: {
+              cartData: cartDataParse,
+              totalQty: cartDataParse.length,
+            },
+          });
+        }
+      });
+  };
+
+  //function to remove cart item
+  const removeCartItem = (id_product) => {
+    //make temp array for cart data
+    let cartDataTemp = cartGlobalState.cartData;
+
+    //find selected cart item
+    let cartItemIndex = cartGlobalState.cartData.findIndex(
+      (el) => el.productData.id === id_product
+    );
+
+    //remove the product from the cartTemp
+    cartDataTemp.splice(cartItemIndex, 1);
 
     //update cart data in local storage & update cart data
 
@@ -154,15 +193,25 @@ export const Navbar = () => {
                   </a>
                   <p className="product-price">${val.productData.price}</p>
                 </div>
-                <div className="product-qty">
+                <div className="flex-right">
+                  <div className="product-qty">
+                    <button
+                      onClick={() =>
+                        editCartQty(val.productData.id, "subtract")
+                      }
+                    >
+                      -
+                    </button>
+                    <p>{val.cartQty}</p>
+                    <button
+                      onClick={() => editCartQty(val.productData.id, "add")}
+                    >
+                      +
+                    </button>
+                  </div>
                   <button
-                    onClick={() => editCartQty(val.productData.id, "subtract")}
-                  >
-                    -
-                  </button>
-                  <p>{val.cartQty}</p>
-                  <button
-                    onClick={() => editCartQty(val.productData.id, "add")}
+                    className="remove-item text-dark-faded"
+                    onClick={() => removeCartItem(val.productData.id)}
                   >
                     +
                   </button>
@@ -232,12 +281,20 @@ export const Navbar = () => {
                 {formatter.format(totalProductsPrice())}
               </p>
             </div>
-            <a href="/checkout" className="btn btn-primary">
+            <a
+              href={cartGlobalState.totalQty > 0 && `/checkout`}
+              className={`btn ${
+                cartGlobalState.totalQty > 0
+                  ? "btn-primary"
+                  : "btn-primary-disabled"
+              }`}
+            >
               Checkout
             </a>
           </div>
         </div>
       </nav>
+      <div className={`bg-overlay ${!cartDisplayed && "hidden"}`}></div>
     </div>
   );
 };

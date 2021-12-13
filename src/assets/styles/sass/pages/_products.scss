@@ -1,4 +1,6 @@
 .products-page {
+  padding-bottom: 200px;
+
   header {
     padding: 195px 0 100px 0;
     background-color: $color-black;
@@ -15,6 +17,7 @@
 
       img {
         width: 540px;
+        border-radius: $border-radius;
       }
 
       .text-container {
