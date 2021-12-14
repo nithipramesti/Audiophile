@@ -28,6 +28,23 @@
       .nav-cart {
         height: 20px;
         cursor: pointer;
+
+        .cart-badge {
+          background-color: $color-orange;
+          position: absolute;
+          top: -10px;
+          right: -10px;
+          width: 18px;
+          height: 18px;
+          font-size: 12px;
+          font-weight: bold;
+          text-align: center;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+          line-height: 0;
+        }
       }
 
       .cart {

@@ -266,6 +266,9 @@ export const Navbar = () => {
               src={`${process.env.PUBLIC_URL}/images/shared/desktop/icon-cart.svg`}
               alt=""
             />
+            {cartGlobalState.totalQty > 0 && (
+              <div className="cart-badge">{cartGlobalState.totalQty}</div>
+            )}
           </a>
           <div className={`cart ${!cartDisplayed && "hidden"}`}>
             <header>

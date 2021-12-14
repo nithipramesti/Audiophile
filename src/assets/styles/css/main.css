@@ -307,6 +307,29 @@ footer .build-by:hover {
   cursor: pointer;
 }
 
+.navbar nav .cart-container .nav-cart .cart-badge {
+  background-color: #d87d4a;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 18px;
+  height: 18px;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 50%;
+  line-height: 0;
+}
+
 .navbar nav .cart-container .cart {
   background-color: #ffffff;
   position: absolute;
