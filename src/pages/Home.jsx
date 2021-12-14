@@ -45,12 +45,12 @@ function Home() {
               Upgrade to premium speakers that are phenomenally built to deliver
               truly remarkable sound.
             </p>
-            <Link
-              to={`/products/${featuredProducts[0].id}`}
+            <a
+              href={`/products/${featuredProducts[0].id}`}
               className="btn btn-dark"
             >
               See Product
-            </Link>
+            </a>
           </div>
         </section>
 
@@ -62,12 +62,12 @@ function Home() {
         >
           <div className="text-container">
             <h3 class="title">{featuredProducts[1].name}</h3>
-            <Link
-              to={`/products/${featuredProducts[1].id}`}
+            <a
+              href={`/products/${featuredProducts[1].id}`}
               className="btn btn-outline"
             >
               See Product
-            </Link>
+            </a>
           </div>
         </section>
 
@@ -81,12 +81,12 @@ function Home() {
           <div className="right-side grid-6">
             <div className="text-container">
               <h3 class="title">{featuredProducts[2].name}</h3>
-              <Link
-                to={`/products/${featuredProducts[2].id}`}
+              <a
+                href={`/products/${featuredProducts[2].id}`}
                 className="btn btn-outline"
               >
                 See Product
-              </Link>
+              </a>
             </div>
           </div>
         </section>

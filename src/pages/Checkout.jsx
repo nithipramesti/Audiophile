@@ -505,9 +505,9 @@ export const Checkout = () => {
                 </p>
               </div>
             </div>
-            <Link to="/" className="btn btn-primary">
+            <a href="/" className="btn btn-primary">
               Back to Home
-            </Link>
+            </a>
           </div>
         </div>
       </div>

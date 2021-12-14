@@ -27,9 +27,9 @@ export const Products = () => {
           >
             <h2>{val.name}</h2>
             <p>{val.description}</p>
-            <Link to={`/products/${val.id}`} className="btn btn-primary">
+            <a href={`/products/${val.id}`} className="btn btn-primary">
               See Product
-            </Link>
+            </a>
           </div>
         </div>
       );

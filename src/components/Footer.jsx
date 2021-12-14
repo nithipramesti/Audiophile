@@ -6,26 +6,26 @@ export const Footer = () => {
     <footer>
       <div className="container grid-12 text-grey">
         <nav>
-          <Link to="/">
+          <a href="/">
             <img
               src={`${process.env.PUBLIC_URL}/images/shared/desktop/logo.svg`}
               alt=""
               className="logo"
             />
-          </Link>
+          </a>
           <div className="nav-links text-light">
-            <Link to="/" className="link link-primary">
+            <a href="/" className="link link-primary">
               Home
-            </Link>
-            <Link to="/categories/headphones" className="link link-primary">
+            </a>
+            <a href="/categories/headphones" className="link link-primary">
               Headphones
-            </Link>
-            <Link to="/categories/speakers" className="link link-primary">
+            </a>
+            <a href="/categories/speakers" className="link link-primary">
               Speakers
-            </Link>
-            <Link to="/categories/earphones" className="link link-primary">
+            </a>
+            <a href="/categories/earphones" className="link link-primary">
               Earphones
-            </Link>
+            </a>
           </div>
         </nav>
         <p className="about">

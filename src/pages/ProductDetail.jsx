@@ -167,9 +167,9 @@ export const ProductDetail = () => {
         <div className="related-product-card">
           <img src={`${process.env.PUBLIC_URL}` + val.image.desktop} alt="" />
           <h4>{val.name}</h4>
-          <Link to={`/products/${val.id}`} className="btn btn-primary">
+          <a href={`/products/${val.id}`} className="btn btn-primary">
             See Product
-          </Link>
+          </a>
         </div>
       );
     });
@@ -180,12 +180,12 @@ export const ProductDetail = () => {
     <div className="product-detail-page">
       <header></header>
       <div className="container">
-        <Link
-          to={`/categories/${productData.category}`}
+        <a
+          href={`/categories/${productData.category}`}
           className="go-back text-dark"
         >
           Go Back
-        </Link>
+        </a>
         <div className="product-card">
           <img src={`${process.env.PUBLIC_URL}` + productData.image.desktop} />
           <div className="text-container">
@@ -194,9 +194,19 @@ export const ProductDetail = () => {
             <h5>{formatter.format(productData.price)}</h5>
             <div className="btn-container">
               <div className="product-qty">
-                <button onClick={() => editQty("subtract")}>-</button>
+                <button
+                  className="text-dark-faded"
+                  onClick={() => editQty("subtract")}
+                >
+                  -
+                </button>
                 <p>{productQty}</p>
-                <button onClick={() => editQty("add")}>+</button>
+                <button
+                  className="text-dark-faded"
+                  onClick={() => editQty("add")}
+                >
+                  +
+                </button>
               </div>
               <a onClick={addToCart} className="btn btn-primary">
                 Add to Cart
