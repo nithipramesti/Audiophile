@@ -205,6 +205,10 @@ button:hover {
   color: #ffffff;
 }
 
+.link-grey {
+  color: #818181;
+}
+
 .link:hover {
   color: #d87d4a;
 }
@@ -496,15 +500,6 @@ section.product-categories .product-category-card .link {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-section.product-categories .product-category-card .link p {
-  margin: 0;
-  color: #818181;
-}
-
-section.product-categories .product-category-card .link p:hover {
-  color: inherit;
 }
 
 section.product-categories .product-category-card .link .icon-arrow {
