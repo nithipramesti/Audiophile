@@ -54,7 +54,13 @@ export const Footer = () => {
             />
           </a>
         </div>
-        <div className="copyright">Built with React by Nithi</div>
+        <a
+          className="build-by"
+          href="https://github.com/nithipramesti/audiophile"
+          target="_blank"
+        >
+          Built with React by Nithi
+        </a>
       </div>
     </footer>
   );

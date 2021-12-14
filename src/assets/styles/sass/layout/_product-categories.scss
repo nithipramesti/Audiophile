@@ -30,6 +30,11 @@ section.product-categories {
 
       p {
         margin: 0;
+        color: $color-grey-dark;
+      }
+
+      p:hover {
+        color: inherit;
       }
 
       .icon-arrow {

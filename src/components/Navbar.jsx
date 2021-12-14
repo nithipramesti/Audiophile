@@ -192,7 +192,9 @@ export const Navbar = () => {
                   >
                     {val.productData.name}
                   </a>
-                  <p className="product-price">${val.productData.price}</p>
+                  <p className="product-price">
+                    {formatter.format(val.productData.price)}
+                  </p>
                 </div>
                 <div className="flex-right">
                   <div className="product-qty">
@@ -283,7 +285,7 @@ export const Navbar = () => {
               </p>
             </div>
             <a
-              hre={cartGlobalState.totalQty > 0 && `/checkout`}
+              href={cartGlobalState.totalQty > 0 && `/checkout`}
               className={`btn ${
                 cartGlobalState.totalQty > 0
                   ? "btn-primary"

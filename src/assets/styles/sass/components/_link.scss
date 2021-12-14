@@ -4,8 +4,13 @@
   text-transform: uppercase;
   text-decoration: none;
   letter-spacing: 1px;
+  transition: color 0.2s ease;
 }
 
 .link-primary {
   color: $color-white;
+}
+
+.link:hover {
+  color: $color-orange;
 }

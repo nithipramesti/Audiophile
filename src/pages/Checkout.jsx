@@ -174,7 +174,9 @@ export const Checkout = () => {
               <p className="product-title">{val.productData.name}</p>
               <p className="product-qty">x{val.cartQty}</p>
             </div>
-            <p className="product-price">${val.productData.price}</p>
+            <p className="product-price">
+              {formatter.format(val.productData.price)}
+            </p>
           </div>
         </div>
       );
@@ -458,7 +460,11 @@ export const Checkout = () => {
           </di>
           <div className="price">
             <p className="price-title">Shipping</p>
-            <p className="price-amount">{formatter.format(shippingPrice())}</p>
+            <p className="price-amount">
+              {cartGlobalState.totalQty > 0
+                ? formatter.format(shippingPrice())
+                : formatter.format(0)}
+            </p>
           </div>
           <div className="price">
             <p className="price-title">VAT (Included)</p>
@@ -468,13 +474,19 @@ export const Checkout = () => {
           <div className="price total">
             <p className="price-title">Grand Total</p>
             <p className="price-amount text-orange">
-              {formatter.format(grandTotalPrice())}
+              {cartGlobalState.totalQty > 0
+                ? formatter.format(grandTotalPrice())
+                : formatter.format(0)}
             </p>
           </div>
 
           <a
-            onClick={checkout}
-            className="btn btn-primary"
+            onClick={cartGlobalState.totalQty > 0 && checkout}
+            className={`btn  ${
+              cartGlobalState.totalQty > 0
+                ? "btn-primary"
+                : "btn-primary-disabled"
+            }`}
           >{`Continue & Pay`}</a>
         </div>
 
@@ -495,7 +507,10 @@ export const Checkout = () => {
               <div className="products">
                 {checkoutFinished && renderCheckoutModal()}
                 <div className="other-product text-dark-faded">
-                  <p>{`and ${checkoutHistory.totalQty - 1} other item(s)`}</p>
+                  <p>
+                    {checkoutHistory.totalQty > 1 &&
+                      `and ${checkoutHistory.totalQty - 1} other item(s)`}
+                  </p>
                 </div>
               </div>
               <div className="grand-total">

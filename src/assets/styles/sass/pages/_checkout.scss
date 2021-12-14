@@ -241,6 +241,14 @@
           }
         }
 
+        .other-product {
+          border-top: 1px solid $color-grey-dark;
+          padding-top: 12px;
+          margin-top: 12px;
+          text-align: center;
+          font-weight: bold;
+        }
+
         .grand-total {
           width: 45%;
           color: $color-white;

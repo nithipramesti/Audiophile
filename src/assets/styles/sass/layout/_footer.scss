@@ -30,9 +30,16 @@ footer {
     }
   }
 
-  .copyright {
+  .build-by {
     grid-column: span 12;
     font-weight: bold;
     margin-top: 56px;
+    font-size: 15px;
+    color: inherit;
+    text-decoration: inherit;
+  }
+
+  .build-by:hover {
+    color: $color-orange;
   }
 }

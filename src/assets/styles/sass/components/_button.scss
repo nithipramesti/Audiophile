@@ -2,6 +2,10 @@ button {
   border: none;
 }
 
+button:hover {
+  color: $color-orange;
+}
+
 .btn {
   text-transform: uppercase;
   text-decoration: none;
@@ -10,11 +14,16 @@ button {
   padding: 15px 30px;
   display: inline-block;
   cursor: pointer;
+  transition: background 0.2s ease;
 }
 
 .btn-primary {
   color: $color-white;
   background-color: $color-orange;
+}
+
+.btn-primary:hover {
+  background-color: $color-orange-dark;
 }
 
 .btn-primary-disabled {
@@ -28,7 +37,16 @@ button {
   background-color: $color-black;
 }
 
+.btn-dark:hover {
+  background-color: $color-black-light;
+}
+
 .btn-outline {
   color: $color-black;
   border: 1px solid $color-black;
+}
+
+.btn-outline:hover {
+  color: $color-white;
+  background-color: $color-black-light;
 }

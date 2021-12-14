@@ -28,7 +28,7 @@ export const ProductCategories = () => {
           <img className="img-category" src={category.img} alt="" />
           <h5>{category.title}</h5>
           <a className="link" href={category.shopLink}>
-            <p className="text-dark-faded">Shop</p>
+            <p>Shop</p>
             <img
               src={`${process.env.PUBLIC_URL}/images/shared/desktop/icon-arrow-right.svg`}
               alt=""
