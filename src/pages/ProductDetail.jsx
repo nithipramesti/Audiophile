@@ -47,11 +47,9 @@ export const ProductDetail = () => {
   //function to make get/set item from localStorage asynchronous
   const asyncLocalStorage = {
     setItem: async function (key, value) {
-      await null;
       return localStorage.setItem(key, value);
     },
     getItem: async function (key) {
-      await null;
       return localStorage.getItem(key);
     },
   };
@@ -73,19 +71,22 @@ export const ProductDetail = () => {
 
       cartDataTemp.push(cartItem);
 
-      //update cart data in local storage & update cart data
-
+      //convert data to string to be stored on local storage
       const cartDataString = JSON.stringify(cartDataTemp);
 
+      //update cart data in local storage & update cart data
       asyncLocalStorage
         .setItem("Audiophile Cart", cartDataString)
         .then(function () {
+          //get cart data from local storage after setItem
           return asyncLocalStorage.getItem("Audiophile Cart");
         })
         .then(function (value) {
           if (value) {
+            //parse data from local storage
             let cartDataParse = JSON.parse(value);
 
+            //Set global state
             dispatch({
               type: "UPDATE_CART",
               payload: {
@@ -94,7 +95,7 @@ export const ProductDetail = () => {
               },
             });
           } else {
-            //Set global state
+            //reset state if cart empty
             dispatch({
               type: "RESET_CART",
             });
@@ -111,10 +112,10 @@ export const ProductDetail = () => {
         //if qty that wanted to add appropriate (less or same than the stock)
         cartDataTemp[indexOnCart].cartQty = totalCart;
 
-        //update cart data in local storage & update cart data:
-
+        //convert data to string to be stored on local storage
         const cartDataString = JSON.stringify(cartDataTemp);
 
+        //update cart data in local storage & update cart data
         asyncLocalStorage
           .setItem("Audiophile Cart", cartDataString)
           .then(function () {

@@ -30,54 +30,47 @@ export const Navbar = () => {
   //function to make get/set item from localStorage asynchronous
   const asyncLocalStorage = {
     setItem: async function (key, value) {
-      await null;
       return localStorage.setItem(key, value);
     },
     getItem: async function (key) {
-      await null;
       return localStorage.getItem(key);
     },
     removeItem: async function (key) {
-      await null;
       return localStorage.removeItem(key);
     },
   };
 
   //function to edit product quantity (to be added to cart)
-  const editCartQty = (id_product, operator) => {
+  const editCartQty = (index, operator) => {
     //make temp array for cart data
     let cartDataTemp = cartGlobalState.cartData;
 
-    //find selected cart item
-    let cartItemIndex = cartGlobalState.cartData.findIndex(
-      (el) => el.productData.id === id_product
-    );
-
     //add or subtract quantity
     if (operator === "add") {
-      if (
-        cartDataTemp[cartItemIndex].cartQty <
-        cartDataTemp[cartItemIndex].productData.stock
-      ) {
-        cartDataTemp[cartItemIndex].cartQty += 1;
+      if (cartDataTemp[index].cartQty < cartDataTemp[index].productData.stock) {
+        cartDataTemp[index].cartQty += 1;
       }
     } else if (operator === "subtract") {
-      if (cartDataTemp[cartItemIndex].cartQty > 1) {
-        cartDataTemp[cartItemIndex].cartQty -= 1;
+      if (cartDataTemp[index].cartQty > 1) {
+        cartDataTemp[index].cartQty -= 1;
+      } else {
+        removeCartItem(index);
       }
     }
 
-    //update cart data in local storage & update cart data
-
+    //convert data to string to be stored on local storage
     const cartDataString = JSON.stringify(cartDataTemp);
 
+    //update cart data in local storage & update cart data
     asyncLocalStorage
       .setItem("Audiophile Cart", cartDataString)
       .then(function () {
+        //get cart data from local storage after setItem
         return asyncLocalStorage.getItem("Audiophile Cart");
       })
       .then(function (value) {
         if (value) {
+          //parse data from local storage
           let cartDataParse = JSON.parse(value);
 
           //Set global state
@@ -93,29 +86,26 @@ export const Navbar = () => {
   };
 
   //function to remove cart item
-  const removeCartItem = (id_product) => {
+  const removeCartItem = (index) => {
     //make temp array for cart data
     let cartDataTemp = cartGlobalState.cartData;
 
-    //find selected cart item
-    let cartItemIndex = cartGlobalState.cartData.findIndex(
-      (el) => el.productData.id === id_product
-    );
-
     //remove the product from the cartTemp
-    cartDataTemp.splice(cartItemIndex, 1);
+    cartDataTemp.splice(index, 1);
 
-    //update cart data in local storage & update cart data
-
+    //convert data to string to be stored on local storage
     const cartDataString = JSON.stringify(cartDataTemp);
 
+    //update cart data in local storage & update cart data
     asyncLocalStorage
       .setItem("Audiophile Cart", cartDataString)
       .then(function () {
+        //get cart data from local storage after setItem
         return asyncLocalStorage.getItem("Audiophile Cart");
       })
       .then(function (value) {
         if (value) {
+          //parse data from local storage
           let cartDataParse = JSON.parse(value);
 
           //Set global state
@@ -136,10 +126,12 @@ export const Navbar = () => {
     asyncLocalStorage
       .removeItem("Audiophile Cart")
       .then(function () {
+        //get cart data from local storage after setItem
         return asyncLocalStorage.getItem("Audiophile Cart");
       })
       .then(function (value) {
         if (value) {
+          //parse data from local storage
           let cartDataParse = JSON.parse(value);
 
           //Set global state
@@ -151,7 +143,7 @@ export const Navbar = () => {
             },
           });
         } else {
-          //Set global state
+          //reset state if cart empty
           dispatch({
             type: "RESET_CART",
           });
@@ -159,6 +151,7 @@ export const Navbar = () => {
       });
   };
 
+  //function to calculate total product price in cart
   const totalProductsPrice = () => {
     let total = 0;
     cartGlobalState.cartData.map((val) => {
@@ -176,7 +169,7 @@ export const Navbar = () => {
 
   const renderCartProducts = () => {
     if (cartGlobalState.cartData.length) {
-      return cartGlobalState.cartData.map((val) => {
+      return cartGlobalState.cartData.map((val, index) => {
         return (
           <div className="cart-product-card">
             <img
@@ -198,23 +191,15 @@ export const Navbar = () => {
                 </div>
                 <div className="flex-right">
                   <div className="product-qty">
-                    <button
-                      onClick={() =>
-                        editCartQty(val.productData.id, "subtract")
-                      }
-                    >
+                    <button onClick={() => editCartQty(index, "subtract")}>
                       -
                     </button>
                     <p>{val.cartQty}</p>
-                    <button
-                      onClick={() => editCartQty(val.productData.id, "add")}
-                    >
-                      +
-                    </button>
+                    <button onClick={() => editCartQty(index, "add")}>+</button>
                   </div>
                   <button
                     className="remove-item text-dark-faded"
-                    onClick={() => removeCartItem(val.productData.id)}
+                    onClick={() => removeCartItem(index)}
                   >
                     +
                   </button>

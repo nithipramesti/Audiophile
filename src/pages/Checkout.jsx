@@ -102,16 +102,10 @@ export const Checkout = () => {
 
   //function to make get/set item from localStorage asynchronous
   const asyncLocalStorage = {
-    setItem: async function (key, value) {
-      await null;
-      return localStorage.setItem(key, value);
-    },
     getItem: async function (key) {
-      await null;
       return localStorage.getItem(key);
     },
     removeItem: async function (key) {
-      await null;
       return localStorage.removeItem(key);
     },
   };
@@ -125,6 +119,7 @@ export const Checkout = () => {
   };
 
   useEffect(() => {
+    //if there's no error & checkout button is clicked:
     if (Object.keys(errors).length === 0 && isSubmitting) {
       //add cart data to checkout history
       setCheckoutHistory(cartGlobalState);
@@ -133,10 +128,12 @@ export const Checkout = () => {
       asyncLocalStorage
         .removeItem("Audiophile Cart")
         .then(function () {
+          //get cart data from local storage after setItem
           return asyncLocalStorage.getItem("Audiophile Cart");
         })
         .then(function (value) {
           if (value) {
+            //parse data from local storage
             let cartDataParse = JSON.parse(value);
 
             //Set global state
@@ -148,7 +145,7 @@ export const Checkout = () => {
               },
             });
           } else {
-            //Set global state
+            //reset state if cart empty
             dispatch({
               type: "RESET_CART",
             });

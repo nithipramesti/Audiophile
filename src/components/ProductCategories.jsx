@@ -40,6 +40,7 @@ export const ProductCategories = () => {
     });
   };
 
+  /////////
   return (
     <section
       className="product-categories grid-12 container"

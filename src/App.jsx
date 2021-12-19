@@ -2,7 +2,7 @@ import "./assets/styles/css/main.css";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-//Import component for pages
+//Import component for Route
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";

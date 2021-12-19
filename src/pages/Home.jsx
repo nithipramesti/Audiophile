@@ -5,6 +5,7 @@ import Story from "../components/Story";
 import database from "../database/data.json";
 
 function Home() {
+  //select product from database to be featured
   const featuredProducts = [database[5], database[4], database[0]];
 
   return (
