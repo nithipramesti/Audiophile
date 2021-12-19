@@ -557,7 +557,7 @@ section.story .img-container {
 }
 
 .home section.hero {
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   color: #fff;
   padding: 225px 0 160px 0;
